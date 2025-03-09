@@ -1,0 +1,78 @@
+[
+  {
+    "question": "What is the purpose of the 202502 Open-Source Week by DeepSeek?",
+    "answer": "The 202502 Open-Source Week by DeepSeek aims to share five open-source repositories, one each day, to showcase their progress in AGI exploration. The goal is to foster collective momentum and community-driven innovation by sharing battle-tested, production-ready code."
+  },
+  {
+    "question": "What is FlashMLA, and what are its key features?",
+    "answer": "FlashMLA is an efficient MLA (Multi-Head Latent Attention) decoding kernel optimized for Hopper GPUs. It supports BF16, uses a paged KV cache with a block size of 64, and achieves 3000 GB/s memory-bound performance and 580 TFLOPS compute-bound performance on H800 GPUs."
+  },
+  {
+    "question": "What is DeepEP, and what does it offer?",
+    "answer": "DeepEP is an open-source EP (Expert Parallelism) communication library for MoE (Mixture of Experts) model training and inference. It provides efficient all-to-all communication, supports intranode and internode communication with NVLink and RDMA, and offers high-throughput and low-latency kernels for training and inference."
+  },
+  {
+    "question": "What is DeepGEMM, and why is it significant?",
+    "answer": "DeepGEMM is an FP8 GEMM (General Matrix Multiply) library that supports both dense and MoE GEMMs. It powers DeepSeek-V3/R1 training and inference, delivering up to 1350+ FP8 TFLOPS on Hopper GPUs. It is lightweight, Just-In-Time compiled, and outperforms expert-tuned kernels across most matrix sizes."
+  },
+  {
+    "question": "What is DualPipe, and how does it improve training efficiency?",
+    "answer": "DualPipe is a bidirectional pipeline parallelism algorithm designed to overlap computation and communication during DeepSeek-V3/R1 training. It reduces pipeline bubbles and improves GPU utilization, especially on weaker GPUs like the H800."
+  },
+  {
+    "question": "What is EPLB, and what is its role in DeepSeek-V3/R1?",
+    "answer": "EPLB (Expert Parallelism Load Balancer) is a load balancing algorithm for DeepSeek-V3/R1. It ensures balanced GPU loads by duplicating heavy-loaded experts and heuristically packing them to GPUs, optimizing performance during training and inference."
+  },
+  {
+    "question": "What is 3FS, and what are its key features?",
+    "answer": "3FS (Fire-Flyer File System) is a high-performance distributed file system designed for AI training and inference workloads. It leverages modern SSDs and RDMA networks to provide strong consistency, high throughput (6.6 TiB/s aggregate read throughput), and support for diverse workloads like training data preprocessing, checkpointing, and KVCache lookups."
+  },
+  {
+    "question": "What is Smallpond, and how does it relate to 3FS?",
+    "answer": "Smallpond is a data processing framework built on top of 3FS. It enables efficient data preprocessing, dataset loading, and other data-intensive tasks, leveraging the high throughput and strong consistency of 3FS."
+  },
+  {
+    "question": "What are the performance metrics of DeepSeek-V3/R1 inference system?",
+    "answer": "The DeepSeek-V3/R1 inference system achieves 73.7k input tokens and 14.8k output tokens per second per H800 node, with a cost profit margin of 545%. It optimizes throughput and latency through cross-node EP-powered batch scaling, computation-communication overlap, and load balancing."
+  },
+  {
+    "question": "What is the significance of DeepSeek's open-source initiative?",
+    "answer": "DeepSeek's open-source initiative aims to accelerate AGI exploration by sharing production-ready tools and frameworks. It fosters collaboration, transparency, and innovation within the AI community, enabling developers to build on their work and contribute to collective progress."
+  },
+  {
+    "question": "What are the key benefits of DeepEP for MoE models?",
+    "answer": "DeepEP provides efficient all-to-all communication for MoE models, supporting both intranode (NVLink) and internode (RDMA) communication. It offers high-throughput kernels for training and inference prefilling, low-latency kernels for decoding, and native FP8 dispatch support, making it highly optimized for MoE workloads."
+  },
+  {
+    "question": "How does DeepGEMM achieve high performance on Hopper GPUs?",
+    "answer": "DeepGEMM achieves high performance on Hopper GPUs by leveraging FP8 precision, Just-In-Time compilation, and optimized kernels. It supports dense and MoE layouts, delivering up to 1350+ FP8 TFLOPS while maintaining a lightweight and clean codebase."
+  },
+  {
+    "question": "What is the role of computation-communication overlap in DeepSeek-V3/R1?",
+    "answer": "Computation-communication overlap in DeepSeek-V3/R1 reduces idle time (bubbles) during training by overlapping data transfer and computation tasks. This optimization improves GPU utilization and overall training efficiency, especially on weaker GPUs like the H800."
+  },
+  {
+    "question": "What is the GraySort benchmark, and how does 3FS perform on it?",
+    "answer": "The GraySort benchmark measures sort performance on large-scale datasets. 3FS achieved a throughput of 3.66 TiB/min on a 25-node cluster, demonstrating its high performance and efficiency in data-intensive tasks."
+  },
+  {
+    "question": "What is the significance of KVCache in DeepSeek-V3/R1 inference?",
+    "answer": "KVCache (Key-Value Cache) optimizes LLM inference by caching key and value vectors of previous tokens, avoiding redundant computations. 3FS supports KVCache with a peak throughput of 40+ GiB/s per client node, enhancing inference efficiency."
+  },
+  {
+    "question": "What are the advantages of 3FS's disaggregated architecture?",
+    "answer": "3FS's disaggregated architecture combines the throughput of thousands of SSDs and the bandwidth of hundreds of storage nodes, enabling applications to access storage resources in a locality-oblivious manner. This design simplifies distributed application development and ensures high performance."
+  },
+  {
+    "question": "How does DeepSeek ensure strong consistency in 3FS?",
+    "answer": "3FS ensures strong consistency by implementing Chain Replication with Apportioned Queries (CRAQ). This protocol guarantees that write operations are propagated across all replicas before being acknowledged, while read operations can be served by any replica, ensuring data integrity and high availability."
+  },
+  {
+    "question": "What is the role of FP8 in DeepGEMM and DeepEP?",
+    "answer": "FP8 (8-bit floating point) is used in DeepGEMM and DeepEP to improve computational efficiency and reduce memory usage. It enables high-performance matrix operations and communication, making it ideal for training and inference in large-scale AI models like DeepSeek-V3/R1."
+  },
+  {
+    "question": "What is the significance of DeepSeek's production data for V3/R1 online services?",
+    "answer": "DeepSeek's production data for V3/R1 online services demonstrates its high efficiency, with 73.7k input tokens and 14.8k output tokens processed per second per H800 node. The cost profit margin of 545% highlights its economic viability and performance optimization."
+  }
+]

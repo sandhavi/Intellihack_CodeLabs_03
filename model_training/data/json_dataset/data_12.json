@@ -1,0 +1,62 @@
+[
+  {
+    "question": "What is the core architecture of the DeepSeek-V3 model?",
+    "answer": "The DeepSeek-V3 model inherits most of its architecture from the V2 model, using a Transformer block structure similar to LLaMA. It includes advanced components like Multi-Head Latent Attention (MLA) and DeepSeekMoE to enhance performance."
+  },
+  {
+    "question": "What is Multi-Head Latent Attention (MLA)?",
+    "answer": "MLA is an attention mechanism that improves speed and memory efficiency by compressing input vectors. It uses a compression technique similar to Principal Component Analysis (PCA) and applies decoupled RoPE to the compressed vectors, reducing the size of the KV cache while maintaining performance."
+  },
+  {
+    "question": "How does DeepSeekMoE work?",
+    "answer": "DeepSeekMoE splits the Feed-Forward Network (FFN) into multiple experts, each specializing in a specific domain of tokens. Experts are selected based on their similarity to the input tokens, and their outputs are combined to produce the final result. Shared experts handle general tasks, while specialized experts focus on specific token groups."
+  },
+  {
+    "question": "What is Multi-Token Prediction (MTP) in DeepSeek-V3?",
+    "answer": "MTP is a method that allows the model to predict multiple tokens sequentially during training, improving efficiency and convergence speed. Unlike parallel MTP, DeepSeek uses sequential MTP, where independent MTP modules process outputs in a chain-like structure, similar to RNNs."
+  },
+  {
+    "question": "What is DualPipe, and how does it improve training efficiency?",
+    "answer": "DualPipe is a bidirectional pipeline parallelism algorithm that reduces training inefficiencies (bubbles) by combining forward and backward processes. It initiates training data from two devices in opposite directions, reducing communication overhead and improving GPU utilization, especially on weaker GPUs like the H800."
+  },
+  {
+    "question": "What is mixed precision training in DeepSeek-V3?",
+    "answer": "Mixed precision training improves training and memory efficiency by reducing the precision of less significant computations (e.g., matrix multiplication) while maintaining high precision for critical operations (e.g., matrix addition). DeepSeek uses Fine-Grained Quantization and intermediate high-precision storage to prevent overflow, underflow, and error accumulation."
+  },
+  {
+    "question": "How does DeepSeek implement reinforcement learning?",
+    "answer": "DeepSeek uses Group Relative Policy Optimization (GRPO) for reinforcement learning. It employs rule-based and model-based reward models to provide feedback. Rule-based rewards are used for tasks with specific rules (e.g., math problems), while model-based rewards evaluate answers against ground truth. The GRPO algorithm maximizes rewards while minimizing deviation from the base model using KL divergence and clipping."
+  },
+  {
+    "question": "What are the advantages of DeepSeek-V3 over other models?",
+    "answer": "DeepSeek-V3 offers efficient training with cheaper GPUs, innovative techniques like DualPipe and MLA, and open-source availability. While its performance compared to OpenAI models is unclear, its cost-effectiveness and accessibility make it a valuable resource for AI researchers."
+  },
+  {
+    "question": "What challenges did DeepSeek face with GPU limitations?",
+    "answer": "Due to restrictions on high-performance GPUs like the NVIDIA H100, DeepSeek had to optimize training on weaker H800 GPUs. They achieved this by reducing communication overhead with DualPipe and improving memory efficiency with MLA and mixed precision training."
+  },
+  {
+    "question": "What is the role of the reward model in DeepSeek's reinforcement learning?",
+    "answer": "The reward model provides feedback to the model during reinforcement learning. Rule-based rewards verify correctness in structured tasks (e.g., math problems), while model-based rewards evaluate answers against ground truth. DeepSeek also includes chain-of-thought reasoning in the reward process, enhancing the model's reasoning capabilities."
+  },
+  {
+    "question": "What is the significance of DeepSeek-V3 being open-source?",
+    "answer": "DeepSeek-V3's open-source nature allows researchers to use the model directly and implement its innovative techniques in their own work. This fosters collaboration and accelerates advancements in AI development by making efficient training methods accessible to a wider audience."
+  },
+  {
+    "question": "What is Fine-Grained Quantization in DeepSeek-V3?",
+    "answer": "Fine-Grained Quantization is a technique used in mixed precision training to prevent overflow and underflow. It groups values and assigns a unique scaling factor to each group, ensuring more accurate representation in lower precision formats like FP8."
+  },
+  {
+    "question": "How does DeepSeek handle error accumulation in mixed precision training?",
+    "answer": "DeepSeek mitigates error accumulation by storing intermediate values in high precision at regular intervals. This prevents small errors from accumulating and becoming significant, ensuring the model maintains accuracy despite reduced precision in computations."
+  },
+  {
+    "question": "What is the purpose of the KL divergence in GRPO?",
+    "answer": "KL divergence in GRPO measures the difference between the current policy model and the reference (base) model. It ensures that the model does not deviate too far from its initial knowledge during reinforcement learning, preserving important language understanding and knowledge learned during pre-training."
+  },
+  {
+    "question": "What is the role of the epsilon parameter in GRPO?",
+    "answer": "The epsilon parameter in GRPO restricts how much the current policy can differ from the old policy. By clipping the policy update within a range (1-ε, 1+ε), it prevents drastic changes, ensuring stable and controlled reinforcement learning."
+  }
+]

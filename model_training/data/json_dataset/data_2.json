@@ -1,0 +1,54 @@
+[
+  {
+    "question": "What is the key contribution of DeepSeek-R1-Zero?",
+    "answer": "DeepSeek-R1-Zero is developed by directly applying reinforcement learning (RL) to the base model without supervised fine-tuning (SFT). It demonstrates capabilities like self-verification, reflection, and generating long chain-of-thought (CoT) reasoning, proving that reasoning capabilities in LLMs can be incentivized purely through RL."
+  },
+  {
+    "question": "What is the significance of DeepSeek-R1-Zero for the research community?",
+    "answer": "DeepSeek-R1-Zero is the first open research to validate that reasoning capabilities in LLMs can be developed purely through RL without SFT, paving the way for future advancements in this area."
+  },
+  {
+    "question": "What is the pipeline for developing DeepSeek-R1?",
+    "answer": "The pipeline for DeepSeek-R1 includes two RL stages to discover improved reasoning patterns and align with human preferences, and two SFT stages to seed the model's reasoning and non-reasoning capabilities."
+  },
+  {
+    "question": "How does DeepSeek-R1 benefit the industry?",
+    "answer": "DeepSeek-R1's pipeline creates better models by combining RL and SFT stages, which can be adopted by the industry to improve reasoning and alignment in LLMs."
+  },
+  {
+    "question": "What is the role of distillation in DeepSeek-R1?",
+    "answer": "Distillation transfers reasoning patterns from larger models like DeepSeek-R1 to smaller models, enabling them to achieve better performance than if they were trained with RL alone."
+  },
+  {
+    "question": "What are the performance results of distilled models from DeepSeek-R1?",
+    "answer": "Distilled models like DeepSeek-R1-Distill-Qwen-7B achieve 55.5% on AIME 2024, surpassing QwQ-32B-Preview. DeepSeek-R1-Distill-Qwen-32B scores 72.6% on AIME 2024, 94.3% on MATH-500, and 57.2% on LiveCodeBench, outperforming previous open-source models and matching o1-mini."
+  },
+  {
+    "question": "Which distilled models are open-sourced by DeepSeek?",
+    "answer": "DeepSeek open-sources distilled 1.5B, 7B, 8B, 14B, 32B, and 70B checkpoints based on Qwen2.5 and Llama3 series."
+  },
+  {
+    "question": "How does DeepSeek-R1 perform on reasoning tasks?",
+    "answer": "DeepSeek-R1 achieves 79.8% Pass@1 on AIME 2024, slightly surpassing OpenAI-o1-1217, and 97.3% on MATH-500, performing on par with OpenAI-o1-1217 and significantly outperforming other models."
+  },
+  {
+    "question": "What is DeepSeek-R1's performance on coding-related tasks?",
+    "answer": "DeepSeek-R1 achieves a 2,029 Elo rating on Codeforces, outperforming 96.3% of human participants, and performs slightly better than DeepSeek-V3 on engineering-related tasks."
+  },
+  {
+    "question": "How does DeepSeek-R1 perform on knowledge benchmarks?",
+    "answer": "DeepSeek-R1 scores 90.8% on MMLU, 84.0% on MMLU-Pro, and 71.5% on GPQA Diamond, significantly outperforming DeepSeek-V3 and surpassing other closed-source models, though slightly below OpenAI-o1-1217."
+  },
+  {
+    "question": "What is DeepSeek-R1's performance on factual benchmarks?",
+    "answer": "On the SimpleQA benchmark, DeepSeek-R1 outperforms DeepSeek-V3, demonstrating strong capability in handling fact-based queries."
+  },
+  {
+    "question": "How does DeepSeek-R1 perform on creative and general tasks?",
+    "answer": "DeepSeek-R1 excels in creative writing, general question answering, editing, and summarization, achieving an 87.6% win-rate on AlpacaEval 2.0 and 92.3% on ArenaHard."
+  },
+  {
+    "question": "What is DeepSeek-R1's performance on long-context understanding tasks?",
+    "answer": "DeepSeek-R1 substantially outperforms DeepSeek-V3 on long-context benchmarks, demonstrating strong capabilities in tasks requiring long-context understanding."
+  }
+]

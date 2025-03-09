@@ -1,0 +1,113 @@
+References
+AI@Meta. Llama 3.1 model card, 2024. URL https://github.com/meta-llama/llama-m
+odels/blob/main/models/llama3_1/MODEL_CARD.md.
+Anthropic. Claude 3.5 sonnet, 2024. URL https://www.anthropic.com/news/claude-3
+-5-sonnet.
+M. Chen, J. Tworek, H. Jun, Q. Yuan, H. P. de Oliveira Pinto, J. Kaplan, H. Edwards, Y. Burda,
+N. Joseph, G. Brockman, A. Ray, R. Puri, G. Krueger, M. Petrov, H. Khlaaf, G. Sastry, P. Mishkin,
+B. Chan, S. Gray, N. Ryder, M. Pavlov, A. Power, L. Kaiser, M. Bavarian, C. Winter, P. Tillet,
+F. P. Such, D. Cummings, M. Plappert, F. Chantzis, E. Barnes, A. Herbert-Voss, W. H. Guss,
+A. Nichol, A. Paino, N. Tezak, J. Tang, I. Babuschkin, S. Balaji, S. Jain, W. Saunders, C. Hesse,
+A. N. Carr, J. Leike, J. Achiam, V. Misra, E. Morikawa, A. Radford, M. Knight, M. Brundage,
+M. Murati, K. Mayer, P. Welinder, B. McGrew, D. Amodei, S. McCandlish, I. Sutskever, and
+W. Zaremba. Evaluating large language models trained on code. CoRR, abs/2107.03374, 2021.
+URL https://arxiv.org/abs/2107.03374.
+A. Dubey, A. Jauhri, A. Pandey, A. Kadian, A. Al-Dahle, A. Letman, A. Mathur, A. Schelten,
+A. Yang, A. Fan, et al. The llama 3 herd of models. arXiv preprint arXiv:2407.21783, 2024.
+Y. Dubois, B. Galambosi, P. Liang, and T. B. Hashimoto. Length-controlled alpacaeval: A simple
+way to debias automatic evaluators. arXiv preprint arXiv:2404.04475, 2024.
+X. Feng, Z. Wan, M. Wen, S. M. McAleer, Y. Wen, W. Zhang, and J. Wang. Alphazero-like
+tree-search can guide large language model decoding and training, 2024. URL https:
+//arxiv.org/abs/2309.17179.
+L. Gao, J. Schulman, and J. Hilton. Scaling laws for reward model overoptimization, 2022. URL
+https://arxiv.org/abs/2210.10760.
+A. P. Gema, J. O. J. Leang, G. Hong, A. Devoto, A. C. M. Mancino, R. Saxena, X. He, Y. Zhao,
+X. Du, M. R. G. Madani, C. Barale, R. McHardy, J. Harris, J. Kaddour, E. van Krieken, and
+P. Minervini. Are we done with mmlu? CoRR, abs/2406.04127, 2024. URL https://doi.or
+g/10.48550/arXiv.2406.04127.
+Google. Our next-generation model: Gemini 1.5, 2024. URL https://blog.google/techno
+logy/ai/google-gemini-next-generation-model-february-2024.
+Y. He, S. Li, J. Liu, Y. Tan, W. Wang, H. Huang, X. Bu, H. Guo, C. Hu, B. Zheng, et al. Chi-
+nese simpleqa: A chinese factuality evaluation for large language models. arXiv preprint
+arXiv:2411.07140, 2024.
+D. Hendrycks, C. Burns, S. Basart, A. Zou, M. Mazeika, D. Song, and J. Steinhardt. Measuring
+massive multitask language understanding. arXiv preprint arXiv:2009.03300, 2020.
+Y. Huang, Y. Bai, Z. Zhu, J. Zhang, J. Zhang, T. Su, J. Liu, C. Lv, Y. Zhang, J. Lei, et al. C-Eval: A
+multi-level multi-discipline chinese evaluation suite for foundation models. arXiv preprint
+arXiv:2305.08322, 2023.
+N. Jain, K. Han, A. Gu, W. Li, F. Yan, T. Zhang, S. Wang, A. Solar-Lezama, K. Sen, and I. Stoica.
+Livecodebench: Holistic and contamination free evaluation of large language models for code.
+CoRR, abs/2403.07974, 2024. URL https://doi.org/10.48550/arXiv.2403.07974.
+17
+S. Krishna, K. Krishna, A. Mohananey, S. Schwarcz, A. Stambler, S. Upadhyay, and M. Faruqui.
+Fact, fetch, and reason: A unified evaluation of retrieval-augmented generation. CoRR,
+abs/2409.12941, 2024. doi: 10.48550/ARXIV.2409.12941. URL https://doi.org/10.485
+50/arXiv.2409.12941.
+A. Kumar, V. Zhuang, R. Agarwal, Y. Su, J. D. Co-Reyes, A. Singh, K. Baumli, S. Iqbal, C. Bishop,
+R. Roelofs, et al. Training language models to self-correct via reinforcement learning. arXiv
+preprint arXiv:2409.12917, 2024.
+H. Li, Y. Zhang, F. Koto, Y. Yang, H. Zhao, Y. Gong, N. Duan, and T. Baldwin. CMMLU: Measur-
+ing massive multitask language understanding in Chinese. arXiv preprint arXiv:2306.09212,
+2023.
+T. Li, W.-L. Chiang, E. Frick, L. Dunlap, T. Wu, B. Zhu, J. E. Gonzalez, and I. Stoica. From
+crowdsourced data to high-quality benchmarks: Arena-hard and benchbuilder pipeline. arXiv
+preprint arXiv:2406.11939, 2024.
+H. Lightman, V. Kosaraju, Y. Burda, H. Edwards, B. Baker, T. Lee, J. Leike, J. Schulman,
+I. Sutskever, and K. Cobbe. Let’s verify step by step. arXiv preprint arXiv:2305.20050, 2023.
+B. Y. Lin. ZeroEval: A Unified Framework for Evaluating Language Models, July 2024. URL
+https://github.com/WildEval/ZeroEval.
+MAA. American invitational mathematics examination - aime. In American Invitational
+Mathematics Examination - AIME 2024, February 2024. URL https://maa.org/math
+-competitions/american-invitational-mathematics-examination-aime.
+OpenAI. Hello GPT-4o, 2024a. URL https://openai.com/index/hello-gpt-4o/.
+OpenAI. Learning to reason with llms, 2024b. URL https://openai.com/index/learnin
+g-to-reason-with-llms/.
+OpenAI. Introducing SimpleQA, 2024c. URL https://openai.com/index/introducing
+-simpleqa/.
+OpenAI. Introducing SWE-bench verified we’re releasing a human-validated subset of swe-
+bench that more, 2024d. URL https://openai.com/index/introducing-swe-bench
+-verified/.
+Qwen. Qwq: Reflect deeply on the boundaries of the unknown, 2024a. URL https://qwenlm
+.github.io/blog/qwq-32b-preview/.
+Qwen. Qwen2.5: A party of foundation models, 2024b. URL https://qwenlm.github.io/b
+log/qwen2.5.
+D. Rein, B. L. Hou, A. C. Stickland, J. Petty, R. Y. Pang, J. Dirani, J. Michael, and S. R. Bowman.
+GPQA: A graduate-level google-proof q&a benchmark. arXiv preprint arXiv:2311.12022, 2023.
+Z. Shao, P. Wang, Q. Zhu, R. Xu, J. Song, M. Zhang, Y. Li, Y. Wu, and D. Guo. Deepseekmath:
+Pushing the limits of mathematical reasoning in open language models. arXiv preprint
+arXiv:2402.03300, 2024.
+D. Silver, T. Hubert, J. Schrittwieser, I. Antonoglou, M. Lai, A. Guez, M. Lanctot, L. Sifre,
+D. Kumaran, T. Graepel, T. P. Lillicrap, K. Simonyan, and D. Hassabis. Mastering chess and
+shogi by self-play with a general reinforcement learning algorithm. CoRR, abs/1712.01815,
+2017a. URL http://arxiv.org/abs/1712.01815.
+18
+D. Silver, J. Schrittwieser, K. Simonyan, I. Antonoglou, A. Huang, A. Guez, T. Hubert, L. Baker,
+M. Lai, A. Bolton, Y. Chen, T. P. Lillicrap, F. Hui, L. Sifre, G. van den Driessche, T. Graepel, and
+D. Hassabis. Mastering the game of go without human knowledge. Nat., 550(7676):354–359,
+2017b. doi: 10.1038/NATURE24270. URL https://doi.org/10.1038/nature24270.
+C. Snell, J. Lee, K. Xu, and A. Kumar. Scaling llm test-time compute optimally can be more
+effective than scaling model parameters, 2024. URL https://arxiv.org/abs/2408.033
+14.
+T. Trinh, Y. Wu, Q. Le, H. He, and T. Luong. Solving olympiad geometry without human
+demonstrations. Nature, 2024. doi: 10.1038/s41586-023-06747-5.
+J. Uesato, N. Kushman, R. Kumar, F. Song, N. Siegel, L. Wang, A. Creswell, G. Irving, and
+I. Higgins. Solving math word problems with process-and outcome-based feedback. arXiv
+preprint arXiv:2211.14275, 2022.
+P. Wang, L. Li, Z. Shao, R. Xu, D. Dai, Y. Li, D. Chen, Y. Wu, and Z. Sui. Math-shepherd: A label-
+free step-by-step verifier for llms in mathematical reasoning. arXiv preprint arXiv:2312.08935,
+2023.
+X. Wang, J. Wei, D. Schuurmans, Q. Le, E. Chi, S. Narang, A. Chowdhery, and D. Zhou.
+Self-consistency improves chain of thought reasoning in language models. arXiv preprint
+arXiv:2203.11171, 2022.
+Y. Wang, X. Ma, G. Zhang, Y. Ni, A. Chandra, S. Guo, W. Ren, A. Arulraj, X. He, Z. Jiang, T. Li,
+M. Ku, K. Wang, A. Zhuang, R. Fan, X. Yue, and W. Chen. Mmlu-pro: A more robust and
+challenging multi-task language understanding benchmark. CoRR, abs/2406.01574, 2024.
+URL https://doi.org/10.48550/arXiv.2406.01574.
+C. S. Xia, Y. Deng, S. Dunn, and L. Zhang. Agentless: Demystifying llm-based software
+engineering agents. arXiv preprint, 2024.
+H. Xin, Z. Z. Ren, J. Song, Z. Shao, W. Zhao, H. Wang, B. Liu, L. Zhang, X. Lu, Q. Du, W. Gao,
+Q. Zhu, D. Yang, Z. Gou, Z. F. Wu, F. Luo, and C. Ruan. Deepseek-prover-v1.5: Harnessing
+proof assistant feedback for reinforcement learning and monte-carlo tree search, 2024. URL
+https://arxiv.org/abs/2408.08152.
+J. Zhou, T. Lu, S. Mishra, S. Brahma, S. Basu, Y. Luan, D. Zhou, and L. Hou. Instruction-following
+evaluation for large language models. arXiv preprint arXiv:2311.07911, 2023.

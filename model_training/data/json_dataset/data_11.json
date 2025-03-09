@@ -1,0 +1,66 @@
+[
+  {
+    "question": "What are the four components of the 3FS system?",
+    "answer": "The four components of the 3FS system are the cluster manager, metadata service, storage service, and client. All components are connected in an RDMA network (InfiniBand or RoCE)."
+  },
+  {
+    "question": "What is the role of the cluster manager in the 3FS system?",
+    "answer": "The cluster manager handles membership changes and distributes cluster configuration to other services and clients. Multiple cluster managers are deployed, with one elected as the primary, and another promoted as primary if the current primary fails."
+  },
+  {
+    "question": "How are file metadata operations handled in the 3FS system?",
+    "answer": "File metadata operations, such as opening or creating files/directories, are sent to metadata services, which implement the file system semantics. Metadata services are stateless, as file metadata are stored in a transactional key-value store like FoundationDB."
+  },
+  {
+    "question": "What is the purpose of the storage service in the 3FS system?",
+    "answer": "The storage service manages local SSDs and provides a chunk store interface. It implements Chain Replication with Apportioned Queries (CRAQ) to ensure strong consistency and replicates file chunks over multiple SSDs."
+  },
+  {
+    "question": "What are the two types of clients developed for the 3FS system?",
+    "answer": "The two types of clients developed for the 3FS system are the FUSE client, which has a low adoption barrier, and the native client, which is used for performance-critical applications."
+  },
+  {
+    "question": "What are the advantages of file system semantics over object store for data analytics and machine learning?",
+    "answer": "File system semantics provide greater flexibility for applications by supporting operations like atomic directory manipulation, symbolic and hard links, and a familiar interface. These features are not natively supported by object stores."
+  },
+  {
+    "question": "What are the limitations of FUSE in the 3FS system?",
+    "answer": "FUSE has performance limitations, including memory copy overhead due to data transfer between kernel and user spaces, and primitive multi-threading support that leads to lock contention and limited I/O processing capability."
+  },
+  {
+    "question": "How does the 3FS system handle asynchronous zero-copy I/O operations?",
+    "answer": "The 3FS system implements an asynchronous zero-copy API within the FUSE daemon. This API uses shared memory regions (Iov) for zero-copy read/write operations and shared ring buffers (Ior) for communication between the user process and native client."
+  },
+  {
+    "question": "What is the role of the file metadata store in the 3FS system?",
+    "answer": "The file metadata store in the 3FS system uses FoundationDB to store metadata as key-value pairs. It supports transactions with Serializable Snapshot Isolation (SSI) and allows stateless metadata services to handle metadata operations efficiently."
+  },
+  {
+    "question": "How does the 3FS system ensure balanced data distribution across chains and SSDs?",
+    "answer": "The 3FS system uses a round-robin strategy to select consecutive replication chains from a designated chain table and generates a random seed to shuffle the selected chains. This ensures balanced data distribution across chains and SSDs."
+  },
+  {
+    "question": "What is the purpose of the chunk storage system in the 3FS system?",
+    "answer": "The chunk storage system in the 3FS system is designed to achieve the highest bandwidth possible, even in the event of storage medium failures. It scales read/write throughput linearly with the number of SSDs and network bandwidth."
+  },
+  {
+    "question": "How does the 3FS system handle data replication?",
+    "answer": "The 3FS system uses Chain Replication with Apportioned Queries (CRAQ) for data replication. Write requests are sent to the head target and propagated along a chain, while read requests can be sent to any target in the chain."
+  },
+  {
+    "question": "What is the role of the cluster manager in failure detection?",
+    "answer": "The cluster manager detects fail-stop failures using heartbeats. If a service does not send heartbeats for a configurable interval, the cluster manager declares it failed and updates the chain tables accordingly."
+  },
+  {
+    "question": "How does the 3FS system handle data recovery after a storage service failure?",
+    "answer": "When a storage service fails, its targets are marked as offline and moved to the end of chains. Upon restart, the service enters a recovery process where it synchronizes data with its predecessor through full-chunk-replace writes and metadata comparisons."
+  },
+  {
+    "question": "What is the purpose of the chunk engine in the 3FS system?",
+    "answer": "The chunk engine manages the storage of file chunks on SSDs. It uses a combination of data files, a RocksDB instance for metadata, and an in-memory cache to provide fast and thread-safe access to chunk data."
+  },
+  {
+    "question": "How does the 3FS system optimize physical block allocation for chunk storage?",
+    "answer": "The 3FS system uses a chunk allocator that assigns physical blocks whose sizes closely match the actual chunk size. It maintains resource pools for different block sizes and uses bitmaps to track block usage, reducing disk fragmentation."
+  }
+]

@@ -1,0 +1,838 @@
+[
+    {
+        "question": "What is DeepSeek-R1-Zero?",
+        "answer": "DeepSeek-R1-Zero is a reasoning model trained via large-scale reinforcement learning (RL) without supervised fine-tuning (SFT). It demonstrates strong reasoning capabilities but faces challenges like poor readability and language mixing."
+    },
+    {
+        "question": "What is DeepSeek-R1?",
+        "answer": "DeepSeek-R1 is an improved version of DeepSeek-R1-Zero that incorporates multi-stage training and cold-start data to address issues like poor readability and further enhance reasoning performance. It achieves performance comparable to OpenAI-o1-1217 on reasoning tasks."
+    },
+    {
+        "question": "What challenges does DeepSeek-R1-Zero face?",
+        "answer": "DeepSeek-R1-Zero faces challenges such as poor readability and language mixing."
+    },
+    {
+        "question": "How does DeepSeek-R1 address the challenges of DeepSeek-R1-Zero?",
+        "answer": "DeepSeek-R1 addresses these challenges by incorporating cold-start data and a multi-stage training pipeline, which includes supervised fine-tuning and reasoning-oriented reinforcement learning."
+    },
+    {
+        "question": "What is the performance of DeepSeek-R1 on reasoning tasks?",
+        "answer": "DeepSeek-R1 achieves performance comparable to OpenAI-o1-1217 on reasoning tasks."
+    },
+    {
+        "question": "What models are open-sourced by the DeepSeek team?",
+        "answer": "The DeepSeek team open-sources DeepSeek-R1-Zero, DeepSeek-R1, and six distilled models (1.5B, 7B, 8B, 14B, 32B, 70B) based on Qwen and Llama."
+    },
+    {
+        "question": "What is the goal of using reinforcement learning in DeepSeek-R1-Zero?",
+        "answer": "The goal is to explore the potential of large language models (LLMs) to develop reasoning capabilities without any supervised data, focusing on their self-evolution through a pure RL process."
+    },
+    {
+        "question": "What is the base model used for DeepSeek-R1-Zero?",
+        "answer": "The base model used for DeepSeek-R1-Zero is DeepSeek-V3-Base."
+    },
+    {
+        "question": "What RL framework is used for DeepSeek-R1-Zero?",
+        "answer": "The RL framework used for DeepSeek-R1-Zero is GRPO."
+    },
+    {
+        "question": "What is cold-start data in DeepSeek-R1?",
+        "answer": "Cold-start data is a small amount of initial data used to fine-tune the DeepSeek-V3-Base model before applying reinforcement learning in DeepSeek-R1."
+    },
+    {
+        "question": "What is the role of rejection sampling in DeepSeek-R1?",
+        "answer": "Rejection sampling is used to create new supervised fine-tuning (SFT) data from the RL checkpoint, which is combined with other supervised data to retrain the model."
+    },
+    {
+        "question": "What is the significance of distillation in DeepSeek-R1?",
+        "answer": "Distillation transfers reasoning capabilities from DeepSeek-R1 to smaller dense models, enabling them to achieve strong reasoning performance without requiring RL training."
+    },
+    {
+        "question": "How do the distilled models perform compared to state-of-the-art models?",
+        "answer": "The distilled models, particularly the 14B, 32B, and 70B versions, outperform state-of-the-art open-source models like QwQ-32B-Preview and set new records on reasoning benchmarks."
+    },
+    {
+        "question": "What are the limitations of DeepSeek-R1?",
+        "answer": "The limitations include challenges in readability and language mixing in DeepSeek-R1-Zero, which are partially addressed in DeepSeek-R1 but may still require further improvements."
+    },
+    {
+        "question": "What future work is planned for DeepSeek-R1?",
+        "answer": "Future work includes improving readability, addressing language mixing, and exploring further enhancements to reasoning capabilities through advanced RL techniques and distillation methods."
+    },
+    {
+        "question": "What are the four components of the 3FS system?",
+        "answer": "The four components of the 3FS system are the cluster manager, metadata service, storage service, and client. All components are connected in an RDMA network (InfiniBand or RoCE)."
+    },
+    {
+        "question": "What is the role of the cluster manager in the 3FS system?",
+        "answer": "The cluster manager handles membership changes and distributes cluster configuration to other services and clients. Multiple cluster managers are deployed, with one elected as the primary, and another promoted as primary if the current primary fails."
+    },
+    {
+        "question": "How are file metadata operations handled in the 3FS system?",
+        "answer": "File metadata operations, such as opening or creating files/directories, are sent to metadata services, which implement the file system semantics. Metadata services are stateless, as file metadata are stored in a transactional key-value store like FoundationDB."
+    },
+    {
+        "question": "What is the purpose of the storage service in the 3FS system?",
+        "answer": "The storage service manages local SSDs and provides a chunk store interface. It implements Chain Replication with Apportioned Queries (CRAQ) to ensure strong consistency and replicates file chunks over multiple SSDs."
+    },
+    {
+        "question": "What are the two types of clients developed for the 3FS system?",
+        "answer": "The two types of clients developed for the 3FS system are the FUSE client, which has a low adoption barrier, and the native client, which is used for performance-critical applications."
+    },
+    {
+        "question": "What are the advantages of file system semantics over object store for data analytics and machine learning?",
+        "answer": "File system semantics provide greater flexibility for applications by supporting operations like atomic directory manipulation, symbolic and hard links, and a familiar interface. These features are not natively supported by object stores."
+    },
+    {
+        "question": "What are the limitations of FUSE in the 3FS system?",
+        "answer": "FUSE has performance limitations, including memory copy overhead due to data transfer between kernel and user spaces, and primitive multi-threading support that leads to lock contention and limited I/O processing capability."
+    },
+    {
+        "question": "How does the 3FS system handle asynchronous zero-copy I/O operations?",
+        "answer": "The 3FS system implements an asynchronous zero-copy API within the FUSE daemon. This API uses shared memory regions (Iov) for zero-copy read/write operations and shared ring buffers (Ior) for communication between the user process and native client."
+    },
+    {
+        "question": "What is the role of the file metadata store in the 3FS system?",
+        "answer": "The file metadata store in the 3FS system uses FoundationDB to store metadata as key-value pairs. It supports transactions with Serializable Snapshot Isolation (SSI) and allows stateless metadata services to handle metadata operations efficiently."
+    },
+    {
+        "question": "How does the 3FS system ensure balanced data distribution across chains and SSDs?",
+        "answer": "The 3FS system uses a round-robin strategy to select consecutive replication chains from a designated chain table and generates a random seed to shuffle the selected chains. This ensures balanced data distribution across chains and SSDs."
+    },
+    {
+        "question": "What is the purpose of the chunk storage system in the 3FS system?",
+        "answer": "The chunk storage system in the 3FS system is designed to achieve the highest bandwidth possible, even in the event of storage medium failures. It scales read/write throughput linearly with the number of SSDs and network bandwidth."
+    },
+    {
+        "question": "How does the 3FS system handle data replication?",
+        "answer": "The 3FS system uses Chain Replication with Apportioned Queries (CRAQ) for data replication. Write requests are sent to the head target and propagated along a chain, while read requests can be sent to any target in the chain."
+    },
+    {
+        "question": "What is the role of the cluster manager in failure detection?",
+        "answer": "The cluster manager detects fail-stop failures using heartbeats. If a service does not send heartbeats for a configurable interval, the cluster manager declares it failed and updates the chain tables accordingly."
+    },
+    {
+        "question": "How does the 3FS system handle data recovery after a storage service failure?",
+        "answer": "When a storage service fails, its targets are marked as offline and moved to the end of chains. Upon restart, the service enters a recovery process where it synchronizes data with its predecessor through full-chunk-replace writes and metadata comparisons."
+    },
+    {
+        "question": "What is the purpose of the chunk engine in the 3FS system?",
+        "answer": "The chunk engine manages the storage of file chunks on SSDs. It uses a combination of data files, a RocksDB instance for metadata, and an in-memory cache to provide fast and thread-safe access to chunk data."
+    },
+    {
+        "question": "How does the 3FS system optimize physical block allocation for chunk storage?",
+        "answer": "The 3FS system uses a chunk allocator that assigns physical blocks whose sizes closely match the actual chunk size. It maintains resource pools for different block sizes and uses bitmaps to track block usage, reducing disk fragmentation."
+    },
+    {
+        "question": "What is the core architecture of the DeepSeek-V3 model?",
+        "answer": "The DeepSeek-V3 model inherits most of its architecture from the V2 model, using a Transformer block structure similar to LLaMA. It includes advanced components like Multi-Head Latent Attention (MLA) and DeepSeekMoE to enhance performance."
+    },
+    {
+        "question": "What is Multi-Head Latent Attention (MLA)?",
+        "answer": "MLA is an attention mechanism that improves speed and memory efficiency by compressing input vectors. It uses a compression technique similar to Principal Component Analysis (PCA) and applies decoupled RoPE to the compressed vectors, reducing the size of the KV cache while maintaining performance."
+    },
+    {
+        "question": "How does DeepSeekMoE work?",
+        "answer": "DeepSeekMoE splits the Feed-Forward Network (FFN) into multiple experts, each specializing in a specific domain of tokens. Experts are selected based on their similarity to the input tokens, and their outputs are combined to produce the final result. Shared experts handle general tasks, while specialized experts focus on specific token groups."
+    },
+    {
+        "question": "What is Multi-Token Prediction (MTP) in DeepSeek-V3?",
+        "answer": "MTP is a method that allows the model to predict multiple tokens sequentially during training, improving efficiency and convergence speed. Unlike parallel MTP, DeepSeek uses sequential MTP, where independent MTP modules process outputs in a chain-like structure, similar to RNNs."
+    },
+    {
+        "question": "What is DualPipe, and how does it improve training efficiency?",
+        "answer": "DualPipe is a bidirectional pipeline parallelism algorithm that reduces training inefficiencies (bubbles) by combining forward and backward processes. It initiates training data from two devices in opposite directions, reducing communication overhead and improving GPU utilization, especially on weaker GPUs like the H800."
+    },
+    {
+        "question": "What is mixed precision training in DeepSeek-V3?",
+        "answer": "Mixed precision training improves training and memory efficiency by reducing the precision of less significant computations (e.g., matrix multiplication) while maintaining high precision for critical operations (e.g., matrix addition). DeepSeek uses Fine-Grained Quantization and intermediate high-precision storage to prevent overflow, underflow, and error accumulation."
+    },
+    {
+        "question": "How does DeepSeek implement reinforcement learning?",
+        "answer": "DeepSeek uses Group Relative Policy Optimization (GRPO) for reinforcement learning. It employs rule-based and model-based reward models to provide feedback. Rule-based rewards are used for tasks with specific rules (e.g., math problems), while model-based rewards evaluate answers against ground truth. The GRPO algorithm maximizes rewards while minimizing deviation from the base model using KL divergence and clipping."
+    },
+    {
+        "question": "What are the advantages of DeepSeek-V3 over other models?",
+        "answer": "DeepSeek-V3 offers efficient training with cheaper GPUs, innovative techniques like DualPipe and MLA, and open-source availability. While its performance compared to OpenAI models is unclear, its cost-effectiveness and accessibility make it a valuable resource for AI researchers."
+    },
+    {
+        "question": "What challenges did DeepSeek face with GPU limitations?",
+        "answer": "Due to restrictions on high-performance GPUs like the NVIDIA H100, DeepSeek had to optimize training on weaker H800 GPUs. They achieved this by reducing communication overhead with DualPipe and improving memory efficiency with MLA and mixed precision training."
+    },
+    {
+        "question": "What is the role of the reward model in DeepSeek's reinforcement learning?",
+        "answer": "The reward model provides feedback to the model during reinforcement learning. Rule-based rewards verify correctness in structured tasks (e.g., math problems), while model-based rewards evaluate answers against ground truth. DeepSeek also includes chain-of-thought reasoning in the reward process, enhancing the model's reasoning capabilities."
+    },
+    {
+        "question": "What is the significance of DeepSeek-V3 being open-source?",
+        "answer": "DeepSeek-V3's open-source nature allows researchers to use the model directly and implement its innovative techniques in their own work. This fosters collaboration and accelerates advancements in AI development by making efficient training methods accessible to a wider audience."
+    },
+    {
+        "question": "What is Fine-Grained Quantization in DeepSeek-V3?",
+        "answer": "Fine-Grained Quantization is a technique used in mixed precision training to prevent overflow and underflow. It groups values and assigns a unique scaling factor to each group, ensuring more accurate representation in lower precision formats like FP8."
+    },
+    {
+        "question": "How does DeepSeek handle error accumulation in mixed precision training?",
+        "answer": "DeepSeek mitigates error accumulation by storing intermediate values in high precision at regular intervals. This prevents small errors from accumulating and becoming significant, ensuring the model maintains accuracy despite reduced precision in computations."
+    },
+    {
+        "question": "What is the purpose of the KL divergence in GRPO?",
+        "answer": "KL divergence in GRPO measures the difference between the current policy model and the reference (base) model. It ensures that the model does not deviate too far from its initial knowledge during reinforcement learning, preserving important language understanding and knowledge learned during pre-training."
+    },
+    {
+        "question": "What is the role of the epsilon parameter in GRPO?",
+        "answer": "The epsilon parameter in GRPO restricts how much the current policy can differ from the old policy. By clipping the policy update within a range (1-\u03b5, 1+\u03b5), it prevents drastic changes, ensuring stable and controlled reinforcement learning."
+    },
+    {
+        "question": "What are the main components of the 3FS system?",
+        "answer": "The 3FS system consists of four main components: cluster manager, metadata service, storage service, and client. All components are connected via an RDMA network (InfiniBand or RoCE)."
+    },
+    {
+        "question": "What is the role of the cluster manager in 3FS?",
+        "answer": "The cluster manager handles membership changes, distributes cluster configuration, and ensures high availability by electing a primary manager. It also monitors heartbeats from metadata and storage services to detect failures."
+    },
+    {
+        "question": "How does the metadata service in 3FS work?",
+        "answer": "The metadata service handles file system semantics (e.g., open/create files/directories) and stores file metadata in a transactional key-value store like FoundationDB. It is stateless, allowing seamless upgrades and restarts without disruption."
+    },
+    {
+        "question": "What is the storage service in 3FS responsible for?",
+        "answer": "The storage service manages local SSDs and provides a chunk store interface. It implements Chain Replication with Apportioned Queries (CRAQ) to ensure strong consistency and high throughput."
+    },
+    {
+        "question": "What are the two types of clients in 3FS?",
+        "answer": "3FS provides two clients: FUSE client for general applications and native client for performance-critical applications. The FUSE client is easier to adopt, while the native client offers better performance."
+    },
+    {
+        "question": "What are the advantages of file system interfaces over object stores in 3FS?",
+        "answer": "File system interfaces in 3FS support atomic directory manipulation, symbolic/hard links, and a unified namespace, providing greater flexibility for applications compared to object stores."
+    },
+    {
+        "question": "What are the limitations of FUSE in 3FS?",
+        "answer": "FUSE has performance limitations, including memory copy overhead between kernel and user spaces, and poor multi-threading support due to lock contention. It also lacks concurrent write support to the same file in Linux 5.x."
+    },
+    {
+        "question": "What is the asynchronous zero-copy API in 3FS?",
+        "answer": "The asynchronous zero-copy API allows applications to perform I/O operations without memory copying overhead. It uses shared memory regions (Iov) and ring buffers (Ior) for efficient communication between user processes and the native client."
+    },
+    {
+        "question": "How does 3FS handle file metadata storage?",
+        "answer": "3FS stores file metadata in a transactional key-value store (e.g., FoundationDB). Metadata includes inodes (for file attributes) and directory entries (for file organization). Metadata services are stateless, ensuring high availability and scalability."
+    },
+    {
+        "question": "What is the role of the chunk storage system in 3FS?",
+        "answer": "The chunk storage system divides file data into equally sized chunks and replicates them across multiple SSDs using CRAQ. It ensures high bandwidth and fault tolerance by distributing data across replication chains."
+    },
+    {
+        "question": "What is Chain Replication with Apportioned Queries (CRAQ)?",
+        "answer": "CRAQ is a replication protocol where write requests are propagated along a chain of storage targets, and read requests can be served by any target. It ensures strong consistency and high read throughput by utilizing all replicas."
+    },
+    {
+        "question": "How does 3FS handle failure detection?",
+        "answer": "3FS uses heartbeats to detect failures. The cluster manager declares a service failed if it misses heartbeats for a configurable interval. Storage services exit if they cannot communicate with the cluster manager for half that interval."
+    },
+    {
+        "question": "What is the data recovery process in 3FS?",
+        "answer": "When a storage service restarts after a failure, it enters a recovery process where it synchronizes data with its predecessors. The process involves transferring chunk metadata and ensuring consistency through full-chunk-replace writes."
+    },
+    {
+        "question": "How does 3FS ensure balanced traffic during recovery?",
+        "answer": "3FS balances traffic during recovery by distributing redirected read requests across multiple SSDs. This prevents any single SSD from becoming a bottleneck and maintains high read throughput."
+    },
+    {
+        "question": "What is the role of the chunk allocator in 3FS?",
+        "answer": "The chunk allocator manages the allocation of physical blocks for storing chunk data. It uses a resource pool with bitmaps to track block usage and ensures efficient allocation and deallocation of storage space."
+    },
+    {
+        "question": "How does 3FS handle concurrent writes to the same file?",
+        "answer": "3FS uses chunk locks to serialize concurrent writes to the same chunk. Write requests are processed in order at the head target, ensuring consistency and preventing conflicts."
+    },
+    {
+        "question": "What is the purpose of the rendezvous hash algorithm in 3FS?",
+        "answer": "The rendezvous hash algorithm is used to distribute file length update tasks across multiple metadata services, ensuring balanced load and minimizing transaction conflicts during concurrent updates."
+    },
+    {
+        "question": "How does 3FS optimize file length updates?",
+        "answer": "3FS optimizes file length updates by using hints about the number of chains containing file chunks. This avoids querying all chains for small files, reducing overhead and improving performance."
+    },
+    {
+        "question": "What is the role of RocksDB in 3FS?",
+        "answer": "RocksDB is used in 3FS to store chunk metadata and system information. It provides efficient and atomic updates through write batches, ensuring consistency and reliability in metadata operations."
+    },
+    {
+        "question": "How does 3FS handle storage medium failures?",
+        "answer": "When a storage medium fails, the affected storage targets are marked offline and moved to the end of their chains. The cluster manager initiates data recovery to synchronize data with other replicas and restore consistency."
+    },
+    {
+        "question": "What is the purpose of the 202502 Open-Source Week by DeepSeek?",
+        "answer": "The 202502 Open-Source Week by DeepSeek aims to share five open-source repositories, one each day, to showcase their progress in AGI exploration. The goal is to foster collective momentum and community-driven innovation by sharing battle-tested, production-ready code."
+    },
+    {
+        "question": "What is FlashMLA, and what are its key features?",
+        "answer": "FlashMLA is an efficient MLA (Multi-Head Latent Attention) decoding kernel optimized for Hopper GPUs. It supports BF16, uses a paged KV cache with a block size of 64, and achieves 3000 GB/s memory-bound performance and 580 TFLOPS compute-bound performance on H800 GPUs."
+    },
+    {
+        "question": "What is DeepEP, and what does it offer?",
+        "answer": "DeepEP is an open-source EP (Expert Parallelism) communication library for MoE (Mixture of Experts) model training and inference. It provides efficient all-to-all communication, supports intranode and internode communication with NVLink and RDMA, and offers high-throughput and low-latency kernels for training and inference."
+    },
+    {
+        "question": "What is DeepGEMM, and why is it significant?",
+        "answer": "DeepGEMM is an FP8 GEMM (General Matrix Multiply) library that supports both dense and MoE GEMMs. It powers DeepSeek-V3/R1 training and inference, delivering up to 1350+ FP8 TFLOPS on Hopper GPUs. It is lightweight, Just-In-Time compiled, and outperforms expert-tuned kernels across most matrix sizes."
+    },
+    {
+        "question": "What is DualPipe, and how does it improve training efficiency?",
+        "answer": "DualPipe is a bidirectional pipeline parallelism algorithm designed to overlap computation and communication during DeepSeek-V3/R1 training. It reduces pipeline bubbles and improves GPU utilization, especially on weaker GPUs like the H800."
+    },
+    {
+        "question": "What is EPLB, and what is its role in DeepSeek-V3/R1?",
+        "answer": "EPLB (Expert Parallelism Load Balancer) is a load balancing algorithm for DeepSeek-V3/R1. It ensures balanced GPU loads by duplicating heavy-loaded experts and heuristically packing them to GPUs, optimizing performance during training and inference."
+    },
+    {
+        "question": "What is 3FS, and what are its key features?",
+        "answer": "3FS (Fire-Flyer File System) is a high-performance distributed file system designed for AI training and inference workloads. It leverages modern SSDs and RDMA networks to provide strong consistency, high throughput (6.6 TiB/s aggregate read throughput), and support for diverse workloads like training data preprocessing, checkpointing, and KVCache lookups."
+    },
+    {
+        "question": "What is Smallpond, and how does it relate to 3FS?",
+        "answer": "Smallpond is a data processing framework built on top of 3FS. It enables efficient data preprocessing, dataset loading, and other data-intensive tasks, leveraging the high throughput and strong consistency of 3FS."
+    },
+    {
+        "question": "What are the performance metrics of DeepSeek-V3/R1 inference system?",
+        "answer": "The DeepSeek-V3/R1 inference system achieves 73.7k input tokens and 14.8k output tokens per second per H800 node, with a cost profit margin of 545%. It optimizes throughput and latency through cross-node EP-powered batch scaling, computation-communication overlap, and load balancing."
+    },
+    {
+        "question": "What is the significance of DeepSeek's open-source initiative?",
+        "answer": "DeepSeek's open-source initiative aims to accelerate AGI exploration by sharing production-ready tools and frameworks. It fosters collaboration, transparency, and innovation within the AI community, enabling developers to build on their work and contribute to collective progress."
+    },
+    {
+        "question": "What are the key benefits of DeepEP for MoE models?",
+        "answer": "DeepEP provides efficient all-to-all communication for MoE models, supporting both intranode (NVLink) and internode (RDMA) communication. It offers high-throughput kernels for training and inference prefilling, low-latency kernels for decoding, and native FP8 dispatch support, making it highly optimized for MoE workloads."
+    },
+    {
+        "question": "How does DeepGEMM achieve high performance on Hopper GPUs?",
+        "answer": "DeepGEMM achieves high performance on Hopper GPUs by leveraging FP8 precision, Just-In-Time compilation, and optimized kernels. It supports dense and MoE layouts, delivering up to 1350+ FP8 TFLOPS while maintaining a lightweight and clean codebase."
+    },
+    {
+        "question": "What is the role of computation-communication overlap in DeepSeek-V3/R1?",
+        "answer": "Computation-communication overlap in DeepSeek-V3/R1 reduces idle time (bubbles) during training by overlapping data transfer and computation tasks. This optimization improves GPU utilization and overall training efficiency, especially on weaker GPUs like the H800."
+    },
+    {
+        "question": "What is the GraySort benchmark, and how does 3FS perform on it?",
+        "answer": "The GraySort benchmark measures sort performance on large-scale datasets. 3FS achieved a throughput of 3.66 TiB/min on a 25-node cluster, demonstrating its high performance and efficiency in data-intensive tasks."
+    },
+    {
+        "question": "What is the significance of KVCache in DeepSeek-V3/R1 inference?",
+        "answer": "KVCache (Key-Value Cache) optimizes LLM inference by caching key and value vectors of previous tokens, avoiding redundant computations. 3FS supports KVCache with a peak throughput of 40+ GiB/s per client node, enhancing inference efficiency."
+    },
+    {
+        "question": "What are the advantages of 3FS's disaggregated architecture?",
+        "answer": "3FS's disaggregated architecture combines the throughput of thousands of SSDs and the bandwidth of hundreds of storage nodes, enabling applications to access storage resources in a locality-oblivious manner. This design simplifies distributed application development and ensures high performance."
+    },
+    {
+        "question": "How does DeepSeek ensure strong consistency in 3FS?",
+        "answer": "3FS ensures strong consistency by implementing Chain Replication with Apportioned Queries (CRAQ). This protocol guarantees that write operations are propagated across all replicas before being acknowledged, while read operations can be served by any replica, ensuring data integrity and high availability."
+    },
+    {
+        "question": "What is the role of FP8 in DeepGEMM and DeepEP?",
+        "answer": "FP8 (8-bit floating point) is used in DeepGEMM and DeepEP to improve computational efficiency and reduce memory usage. It enables high-performance matrix operations and communication, making it ideal for training and inference in large-scale AI models like DeepSeek-V3/R1."
+    },
+    {
+        "question": "What is the significance of DeepSeek's production data for V3/R1 online services?",
+        "answer": "DeepSeek's production data for V3/R1 online services demonstrates its high efficiency, with 73.7k input tokens and 14.8k output tokens processed per second per H800 node. The cost profit margin of 545% highlights its economic viability and performance optimization."
+    },
+    {
+        "question": "What is the purpose of DeepSeek's open-source initiative?",
+        "answer": "DeepSeek's open-source initiative aims to share production-ready tools and frameworks to accelerate AGI exploration. By open-sourcing their code, DeepSeek fosters collaboration, transparency, and innovation within the AI community."
+    },
+    {
+        "question": "What is FlashMLA, and how is it optimized for Hopper GPUs?",
+        "answer": "FlashMLA is an efficient Multi-Head Latent Attention (MLA) decoding kernel optimized for Hopper GPUs. It supports BF16, uses a paged KV cache with a block size of 64, and achieves 3000 GB/s memory-bound performance and 580 TFLOPS compute-bound performance on H800 GPUs."
+    },
+    {
+        "question": "What is DeepEP, and what are its key features?",
+        "answer": "DeepEP is an open-source Expert Parallelism (EP) communication library for MoE (Mixture of Experts) model training and inference. It provides efficient all-to-all communication, supports intranode and internode communication with NVLink and RDMA, and offers high-throughput and low-latency kernels for training and inference."
+    },
+    {
+        "question": "What is DeepGEMM, and why is it significant for DeepSeek-V3/R1?",
+        "answer": "DeepGEMM is an FP8 GEMM (General Matrix Multiply) library that supports both dense and MoE GEMMs. It powers DeepSeek-V3/R1 training and inference, delivering up to 1350+ FP8 TFLOPS on Hopper GPUs. It is lightweight, Just-In-Time compiled, and outperforms expert-tuned kernels across most matrix sizes."
+    },
+    {
+        "question": "What is DualPipe, and how does it improve training efficiency?",
+        "answer": "DualPipe is a bidirectional pipeline parallelism algorithm designed to overlap computation and communication during DeepSeek-V3/R1 training. It reduces pipeline bubbles and improves GPU utilization, especially on weaker GPUs like the H800."
+    },
+    {
+        "question": "What is EPLB, and what is its role in DeepSeek-V3/R1?",
+        "answer": "EPLB (Expert Parallelism Load Balancer) is a load balancing algorithm for DeepSeek-V3/R1. It ensures balanced GPU loads by duplicating heavy-loaded experts and heuristically packing them to GPUs, optimizing performance during training and inference."
+    },
+    {
+        "question": "What is 3FS, and what are its key features?",
+        "answer": "3FS (Fire-Flyer File System) is a high-performance distributed file system designed for AI training and inference workloads. It leverages modern SSDs and RDMA networks to provide strong consistency, high throughput (6.6 TiB/s aggregate read throughput), and support for diverse workloads like training data preprocessing, checkpointing, and KVCache lookups."
+    },
+    {
+        "question": "What is Smallpond, and how does it relate to 3FS?",
+        "answer": "Smallpond is a data processing framework built on top of 3FS. It enables efficient data preprocessing, dataset loading, and other data-intensive tasks, leveraging the high throughput and strong consistency of 3FS."
+    },
+    {
+        "question": "What are the performance metrics of DeepSeek-V3/R1 inference system?",
+        "answer": "The DeepSeek-V3/R1 inference system achieves 73.7k input tokens and 14.8k output tokens per second per H800 node, with a cost profit margin of 545%. It optimizes throughput and latency through cross-node EP-powered batch scaling, computation-communication overlap, and load balancing."
+    },
+    {
+        "question": "What is the significance of DeepSeek's production data for V3/R1 online services?",
+        "answer": "DeepSeek's production data for V3/R1 online services demonstrates its high efficiency, with 73.7k input tokens and 14.8k output tokens processed per second per H800 node. The cost profit margin of 545% highlights its economic viability and performance optimization."
+    },
+    {
+        "question": "What is the role of FP8 in DeepGEMM and DeepEP?",
+        "answer": "FP8 (8-bit floating point) is used in DeepGEMM and DeepEP to improve computational efficiency and reduce memory usage. It enables high-performance matrix operations and communication, making it ideal for training and inference in large-scale AI models like DeepSeek-V3/R1."
+    },
+    {
+        "question": "What is the GraySort benchmark, and how does 3FS perform on it?",
+        "answer": "The GraySort benchmark measures sort performance on large-scale datasets. 3FS achieved a throughput of 3.66 TiB/min on a 25-node cluster, demonstrating its high performance and efficiency in data-intensive tasks."
+    },
+    {
+        "question": "What is the role of KVCache in DeepSeek-V3/R1 inference?",
+        "answer": "KVCache (Key-Value Cache) optimizes LLM inference by caching key and value vectors of previous tokens, avoiding redundant computations. 3FS supports KVCache with a peak throughput of 40+ GiB/s per client node, enhancing inference efficiency."
+    },
+    {
+        "question": "What are the advantages of 3FS's disaggregated architecture?",
+        "answer": "3FS's disaggregated architecture combines the throughput of thousands of SSDs and the bandwidth of hundreds of storage nodes, enabling applications to access storage resources in a locality-oblivious manner. This design simplifies distributed application development and ensures high performance."
+    },
+    {
+        "question": "How does DeepSeek ensure strong consistency in 3FS?",
+        "answer": "3FS ensures strong consistency by implementing Chain Replication with Apportioned Queries (CRAQ). This protocol guarantees that write operations are propagated across all replicas before being acknowledged, while read operations can be served by any replica, ensuring data integrity and high availability."
+    },
+    {
+        "question": "What is the role of computation-communication overlap in DeepSeek-V3/R1?",
+        "answer": "Computation-communication overlap in DeepSeek-V3/R1 reduces idle time (bubbles) during training by overlapping data transfer and computation tasks. This optimization improves GPU utilization and overall training efficiency, especially on weaker GPUs like the H800."
+    },
+    {
+        "question": "What is the significance of DeepSeek's open-source initiative for the AI community?",
+        "answer": "DeepSeek's open-source initiative provides the AI community with production-ready tools and frameworks, enabling developers to build on their work and contribute to collective progress. It fosters collaboration, transparency, and innovation in AGI exploration."
+    },
+    {
+        "question": "What is the role of the cluster manager in 3FS?",
+        "answer": "The cluster manager in 3FS handles membership changes, distributes cluster configuration, and ensures high availability by electing a primary manager. It monitors heartbeats from metadata and storage services to detect failures and maintain system integrity."
+    },
+    {
+        "question": "What is the role of the metadata service in 3FS?",
+        "answer": "The metadata service in 3FS handles file system semantics (e.g., open/create files/directories) and stores file metadata in a transactional key-value store like FoundationDB. It is stateless, allowing seamless upgrades and restarts without disruption."
+    },
+    {
+        "question": "What is the role of the storage service in 3FS?",
+        "answer": "The storage service in 3FS manages local SSDs and provides a chunk store interface. It implements Chain Replication with Apportioned Queries (CRAQ) to ensure strong consistency and high throughput for file data."
+    },
+    {
+        "question": "What are the limitations of FUSE in 3FS?",
+        "answer": "FUSE has performance limitations, including memory copy overhead between kernel and user spaces, and poor multi-threading support due to lock contention. It also lacks concurrent write support to the same file in Linux 5.x."
+    },
+    {
+        "question": "What is the asynchronous zero-copy API in 3FS?",
+        "answer": "The asynchronous zero-copy API in 3FS allows applications to perform I/O operations without memory copying overhead. It uses shared memory regions (Iov) and ring buffers (Ior) for efficient communication between user processes and the native client."
+    },
+    {
+        "question": "What is the role of the chunk allocator in 3FS?",
+        "answer": "The chunk allocator in 3FS manages the allocation of physical blocks for storing chunk data. It uses a resource pool with bitmaps to track block usage and ensures efficient allocation and deallocation of storage space."
+    },
+    {
+        "question": "What is the significance of DeepSeek's production data for V3/R1 online services?",
+        "answer": "DeepSeek's production data for V3/R1 online services demonstrates its high efficiency, with 73.7k input tokens and 14.8k output tokens processed per second per H800 node. The cost profit margin of 545% highlights its economic viability and performance optimization."
+    },
+    {
+        "question": "What is the key contribution of DeepSeek-R1-Zero?",
+        "answer": "DeepSeek-R1-Zero is developed by directly applying reinforcement learning (RL) to the base model without supervised fine-tuning (SFT). It demonstrates capabilities like self-verification, reflection, and generating long chain-of-thought (CoT) reasoning, proving that reasoning capabilities in LLMs can be incentivized purely through RL."
+    },
+    {
+        "question": "What is the significance of DeepSeek-R1-Zero for the research community?",
+        "answer": "DeepSeek-R1-Zero is the first open research to validate that reasoning capabilities in LLMs can be developed purely through RL without SFT, paving the way for future advancements in this area."
+    },
+    {
+        "question": "What is the pipeline for developing DeepSeek-R1?",
+        "answer": "The pipeline for DeepSeek-R1 includes two RL stages to discover improved reasoning patterns and align with human preferences, and two SFT stages to seed the model's reasoning and non-reasoning capabilities."
+    },
+    {
+        "question": "How does DeepSeek-R1 benefit the industry?",
+        "answer": "DeepSeek-R1's pipeline creates better models by combining RL and SFT stages, which can be adopted by the industry to improve reasoning and alignment in LLMs."
+    },
+    {
+        "question": "What is the role of distillation in DeepSeek-R1?",
+        "answer": "Distillation transfers reasoning patterns from larger models like DeepSeek-R1 to smaller models, enabling them to achieve better performance than if they were trained with RL alone."
+    },
+    {
+        "question": "What are the performance results of distilled models from DeepSeek-R1?",
+        "answer": "Distilled models like DeepSeek-R1-Distill-Qwen-7B achieve 55.5% on AIME 2024, surpassing QwQ-32B-Preview. DeepSeek-R1-Distill-Qwen-32B scores 72.6% on AIME 2024, 94.3% on MATH-500, and 57.2% on LiveCodeBench, outperforming previous open-source models and matching o1-mini."
+    },
+    {
+        "question": "Which distilled models are open-sourced by DeepSeek?",
+        "answer": "DeepSeek open-sources distilled 1.5B, 7B, 8B, 14B, 32B, and 70B checkpoints based on Qwen2.5 and Llama3 series."
+    },
+    {
+        "question": "How does DeepSeek-R1 perform on reasoning tasks?",
+        "answer": "DeepSeek-R1 achieves 79.8% Pass@1 on AIME 2024, slightly surpassing OpenAI-o1-1217, and 97.3% on MATH-500, performing on par with OpenAI-o1-1217 and significantly outperforming other models."
+    },
+    {
+        "question": "What is DeepSeek-R1's performance on coding-related tasks?",
+        "answer": "DeepSeek-R1 achieves a 2,029 Elo rating on Codeforces, outperforming 96.3% of human participants, and performs slightly better than DeepSeek-V3 on engineering-related tasks."
+    },
+    {
+        "question": "How does DeepSeek-R1 perform on knowledge benchmarks?",
+        "answer": "DeepSeek-R1 scores 90.8% on MMLU, 84.0% on MMLU-Pro, and 71.5% on GPQA Diamond, significantly outperforming DeepSeek-V3 and surpassing other closed-source models, though slightly below OpenAI-o1-1217."
+    },
+    {
+        "question": "What is DeepSeek-R1's performance on factual benchmarks?",
+        "answer": "On the SimpleQA benchmark, DeepSeek-R1 outperforms DeepSeek-V3, demonstrating strong capability in handling fact-based queries."
+    },
+    {
+        "question": "How does DeepSeek-R1 perform on creative and general tasks?",
+        "answer": "DeepSeek-R1 excels in creative writing, general question answering, editing, and summarization, achieving an 87.6% win-rate on AlpacaEval 2.0 and 92.3% on ArenaHard."
+    },
+    {
+        "question": "What is DeepSeek-R1's performance on long-context understanding tasks?",
+        "answer": "DeepSeek-R1 substantially outperforms DeepSeek-V3 on long-context benchmarks, demonstrating strong capabilities in tasks requiring long-context understanding."
+    },
+    {
+        "question": "What is the key approach of DeepSeek-R1-Zero?",
+        "answer": "DeepSeek-R1-Zero applies reinforcement learning (RL) directly to the base model without any supervised fine-tuning (SFT) data, allowing the model to explore chain-of-thought (CoT) reasoning for solving complex problems."
+    },
+    {
+        "question": "What is the role of cold-start data in DeepSeek-R1?",
+        "answer": "Cold-start data is used in DeepSeek-R1 to fine-tune the base model before applying RL. It improves readability and reasoning performance by providing a small amount of high-quality, human-friendly data as a starting point."
+    },
+    {
+        "question": "What is the reinforcement learning algorithm used in DeepSeek-R1-Zero?",
+        "answer": "DeepSeek-R1-Zero uses Group Relative Policy Optimization (GRPO), which estimates the baseline from group scores instead of using a critic model, reducing training costs."
+    },
+    {
+        "question": "How does GRPO work?",
+        "answer": "GRPO samples a group of outputs for each question, computes rewards for each output, and optimizes the policy model by maximizing a reward-based objective while minimizing KL divergence from a reference policy."
+    },
+    {
+        "question": "What are the two types of rewards used in DeepSeek-R1-Zero?",
+        "answer": "The two types of rewards are: (1) Accuracy rewards, which evaluate the correctness of the response, and (2) Format rewards, which enforce the model to structure its reasoning process within '<think>' and '</think>' tags."
+    },
+    {
+        "question": "Why are neural reward models not used in DeepSeek-R1-Zero?",
+        "answer": "Neural reward models are avoided because they may suffer from reward hacking during large-scale RL training, and retraining them requires additional resources and complicates the training pipeline."
+    },
+    {
+        "question": "What is the training template for DeepSeek-R1-Zero?",
+        "answer": "The training template requires the model to first produce a reasoning process within '<think>' tags, followed by the final answer within '<answer>' tags, ensuring a structured output format."
+    },
+    {
+        "question": "How does DeepSeek-R1-Zero's performance improve during RL training?",
+        "answer": "DeepSeek-R1-Zero's performance improves steadily during RL training, with its pass@1 score on AIME 2024 increasing from 15.6% to 71.0%, and further to 86.7% with majority voting."
+    },
+    {
+        "question": "What is the self-evolution process of DeepSeek-R1-Zero?",
+        "answer": "DeepSeek-R1-Zero autonomously improves its reasoning capabilities during RL training, developing behaviors like reflection and alternative problem-solving strategies without explicit programming."
+    },
+    {
+        "question": "What is the 'aha moment' in DeepSeek-R1-Zero?",
+        "answer": "The 'aha moment' refers to an intermediate stage where DeepSeek-R1-Zero learns to allocate more thinking time to reevaluate its initial approach, demonstrating advanced problem-solving strategies emerging from RL."
+    },
+    {
+        "question": "What are the drawbacks of DeepSeek-R1-Zero?",
+        "answer": "DeepSeek-R1-Zero struggles with poor readability and language mixing, which are addressed in DeepSeek-R1 by incorporating cold-start data and improving output formatting."
+    },
+    {
+        "question": "What is the pipeline for training DeepSeek-R1?",
+        "answer": "The pipeline for DeepSeek-R1 includes: (1) Cold-start fine-tuning with high-quality CoT data, (2) Reasoning-oriented RL, (3) Rejection sampling and supervised fine-tuning, and (4) RL for all scenarios to align with human preferences."
+    },
+    {
+        "question": "How is cold-start data collected for DeepSeek-R1?",
+        "answer": "Cold-start data is collected using few-shot prompting, generating detailed answers with reflection, gathering readable outputs from DeepSeek-R1-Zero, and refining results through human annotation."
+    },
+    {
+        "question": "What is the reasoning-oriented RL stage in DeepSeek-R1?",
+        "answer": "Reasoning-oriented RL focuses on enhancing the model's capabilities in coding, mathematics, science, and logic reasoning, using rule-based rewards and a language consistency reward to improve readability."
+    },
+    {
+        "question": "How is SFT data collected for DeepSeek-R1?",
+        "answer": "SFT data is collected by performing rejection sampling from the RL checkpoint, filtering out chaotic or unreadable outputs, and retaining correct responses. It includes both reasoning and non-reasoning data."
+    },
+    {
+        "question": "What is the final RL stage in DeepSeek-R1?",
+        "answer": "The final RL stage aligns the model with human preferences by combining rule-based rewards for reasoning tasks and reward models for general tasks, ensuring helpfulness and harmlessness."
+    },
+    {
+        "question": "How is distillation used to empower smaller models?",
+        "answer": "Distillation transfers reasoning capabilities from DeepSeek-R1 to smaller models by fine-tuning them on curated datasets. This approach significantly enhances the reasoning abilities of smaller models without requiring RL."
+    },
+    {
+        "question": "Which base models are used for distillation?",
+        "answer": "The base models used for distillation include Qwen2.5-Math-1.5B, Qwen2.5-Math-7B, Qwen2.5-14B, Qwen2.5-32B, Llama-3.1-8B, and Llama-3.3-70B-Instruct."
+    },
+    {
+        "question": "Why is RL not included in the distilled models?",
+        "answer": "RL is excluded from distilled models to demonstrate the effectiveness of distillation alone, leaving the exploration of RL for smaller models to the broader research community."
+    },
+    {
+        "question": "What benchmarks are used to evaluate DeepSeek-R1?",
+        "answer": "DeepSeek-R1 is evaluated on benchmarks including MMLU, MMLU-Redux, MMLU-Pro, C-Eval, CMMLU, IFEval, FRAMES, GPQA Diamond, SimpleQA, C-SimpleQA, SWE-Bench Verified, Aider, LiveCodeBench, Codeforces, Chinese National High School Mathematics Olympiad (CNMO 2024), and American Invitational Mathematics Examination 2024 (AIME 2024)."
+    },
+    {
+        "question": "How are open-ended generation tasks evaluated for DeepSeek-R1?",
+        "answer": "Open-ended generation tasks are evaluated using LLMs as judges, following the configurations of AlpacaEval 2.0 and Arena-Hard, which use GPT-4-Turbo-1106 for pairwise comparisons. Only the final summary is fed to the evaluation to avoid length bias."
+    },
+    {
+        "question": "What evaluation prompts are used for DeepSeek-R1?",
+        "answer": "Standard benchmarks like MMLU, DROP, GPQA Diamond, and SimpleQA use prompts from the simple-evals framework. MMLU-Redux uses Zero-Eval prompts in a zero-shot setting. MMLU-Pro, C-Eval, and CLUE-WSC are modified to zero-shot prompts. Other datasets follow their original evaluation protocols."
+    },
+    {
+        "question": "What is the evaluation setup for DeepSeek-R1?",
+        "answer": "The evaluation setup uses a maximum generation length of 32,768 tokens. Pass@1 is calculated using a sampling temperature of 0.6 and a top-p value of 0.95, generating k responses (typically 4 to 64) for each question. For AIME 2024, consensus results (majority vote) are reported using 64 samples."
+    },
+    {
+        "question": "What are the baselines used for comparing DeepSeek-R1?",
+        "answer": "Baselines include DeepSeek-V3, Claude-Sonnet-3.5-1022, GPT-4o-0513, OpenAI-o1-mini, and OpenAI-o1-1217. For distilled models, QwQ-32B-Preview is also compared."
+    },
+    {
+        "question": "How does DeepSeek-R1 perform on education-oriented benchmarks?",
+        "answer": "DeepSeek-R1 demonstrates superior performance on education-oriented benchmarks like MMLU, MMLU-Pro, and GPQA Diamond, with significant improvements in STEM-related questions due to large-scale reinforcement learning."
+    },
+    {
+        "question": "How does DeepSeek-R1 perform on factual benchmarks?",
+        "answer": "DeepSeek-R1 outperforms DeepSeek-V3 on the factual benchmark SimpleQA but performs worse on Chinese SimpleQA due to safety RL causing it to refuse certain queries."
+    },
+    {
+        "question": "What is DeepSeek-R1's performance on IF-Eval?",
+        "answer": "DeepSeek-R1 delivers impressive results on IF-Eval, showcasing its ability to follow format instructions, attributed to the inclusion of instruction-following data during supervised fine-tuning (SFT) and RL training."
+    },
+    {
+        "question": "How does DeepSeek-R1 perform on writing and open-domain tasks?",
+        "answer": "DeepSeek-R1 excels on AlpacaEval2.0 and ArenaHard, indicating strong performance in writing tasks and open-domain question answering, with concise summary lengths avoiding length bias in GPT-based evaluations."
+    },
+    {
+        "question": "How does DeepSeek-R1 perform on math tasks?",
+        "answer": "DeepSeek-R1 performs on par with OpenAI-o1-1217 on math tasks, surpassing other models by a large margin."
+    },
+    {
+        "question": "How does DeepSeek-R1 perform on coding tasks?",
+        "answer": "DeepSeek-R1 dominates coding algorithm tasks like LiveCodeBench and Codeforces but is slightly outperformed by OpenAI-o1-1217 on engineering-oriented coding tasks like Aider."
+    },
+    {
+        "question": "What are the results of distilled models from DeepSeek-R1?",
+        "answer": "Distilled models like DeepSeek-R1-Distill-Qwen-7B outperform non-reasoning models like GPT-4o-0513. DeepSeek-R1-14B surpasses QwQ-32B-Preview, and DeepSeek-R1-32B and DeepSeek-R1-70B significantly exceed o1-mini on most benchmarks."
+    },
+    {
+        "question": "What is the potential of applying RL to distilled models?",
+        "answer": "Applying RL to distilled models yields significant further gains, but only the results of simple SFT-distilled models are presented here for exploration purposes."
+    },
+    {
+        "question": "What is the comparison between distillation and reinforcement learning (RL) for smaller models?",
+        "answer": "Distilling larger models like DeepSeek-R1 into smaller ones yields excellent results, whereas smaller models relying on large-scale RL require enormous computational power and may not achieve comparable performance. Distillation is both economical and effective, but advancing beyond current intelligence boundaries may still require more powerful base models and larger-scale RL."
+    },
+    {
+        "question": "What are the results of large-scale RL training on Qwen-32B-Base?",
+        "answer": "Large-scale RL training on Qwen-32B-Base results in DeepSeek-R1-Zero-Qwen-32B, which achieves performance on par with QwQ-32B-Preview. However, DeepSeek-R1-Distill-Qwen-32B, distilled from DeepSeek-R1, significantly outperforms DeepSeek-R1-Zero-Qwen-32B across all benchmarks."
+    },
+    {
+        "question": "What are the limitations of the Process Reward Model (PRM)?",
+        "answer": "PRM has three main limitations: (1) It is challenging to define fine-grained steps in general reasoning, (2) determining the correctness of intermediate steps is difficult, and (3) it leads to reward hacking and complicates the training pipeline. While PRM can rerank top-N responses or assist in guided search, its advantages are limited compared to the computational overhead it introduces."
+    },
+    {
+        "question": "What challenges were encountered with Monte Carlo Tree Search (MCTS)?",
+        "answer": "MCTS faces challenges in scaling up training due to the exponentially larger search space in token generation compared to chess. Setting a maximum extension limit for each node can lead to local optima, and training a fine-grained value model to guide the search process is inherently difficult."
+    },
+    {
+        "question": "What are the key achievements of DeepSeek-R1-Zero and DeepSeek-R1?",
+        "answer": "DeepSeek-R1-Zero achieves strong performance across various tasks using pure RL without cold-start data. DeepSeek-R1, leveraging cold-start data and iterative RL fine-tuning, achieves performance comparable to OpenAI-o1-1217 on a range of tasks."
+    },
+    {
+        "question": "What are the results of distilling DeepSeek-R1 into smaller models?",
+        "answer": "Distilling DeepSeek-R1 into smaller models yields promising results. For example, DeepSeek-R1-Distill-Qwen-1.5B outperforms GPT-4o and Claude-3.5-Sonnet on math benchmarks, achieving 28.9% on AIME and 83.9% on MATH. Other distilled models also significantly outperform instruction-tuned models based on the same checkpoints."
+    },
+    {
+        "question": "What are the future research directions for DeepSeek-R1?",
+        "answer": "Future research directions include: (1) Enhancing general capabilities like function calling, multi-turn conversations, and JSON output, (2) addressing language mixing issues for non-Chinese and non-English queries, (3) improving prompt sensitivity by recommending zero-shot settings, and (4) improving performance on software engineering tasks through rejection sampling or asynchronous evaluations during RL."
+    },
+    {
+        "question": "What is the current limitation of DeepSeek-R1 in software engineering tasks?",
+        "answer": "DeepSeek-R1 has not shown significant improvement over DeepSeek-V3 in software engineering tasks due to the long evaluation times impacting RL efficiency. Future versions will address this by implementing rejection sampling or asynchronous evaluations during the RL process."
+    },
+    {
+        "question": "How does DeepSeek-R1 handle language mixing?",
+        "answer": "DeepSeek-R1 is optimized for Chinese and English, which can result in language mixing issues when handling queries in other languages. For example, it might use English for reasoning and responses even if the query is in another language. This limitation will be addressed in future updates."
+    },
+    {
+        "question": "What is the recommendation for prompting DeepSeek-R1?",
+        "answer": "DeepSeek-R1 is sensitive to prompts, and few-shot prompting degrades its performance. Users are recommended to directly describe the problem and specify the output format using a zero-shot setting for optimal results."
+    },
+    {
+        "question": "What is the Llama 3.1 model card?",
+        "answer": "The Llama 3.1 model card provides details about the Llama 3.1 model, including its architecture, training data, and performance. It is available at https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md."
+    },
+    {
+        "question": "What is Claude 3.5 Sonnet?",
+        "answer": "Claude 3.5 Sonnet is a model developed by Anthropic, designed for advanced natural language understanding and generation tasks. More information can be found at https://www.anthropic.com/news/claude-3-5-sonnet."
+    },
+    {
+        "question": "What is the focus of the paper 'Evaluating large language models trained on code'?",
+        "answer": "The paper focuses on evaluating the performance of large language models trained on code, exploring their capabilities in code generation, understanding, and reasoning. It is available at https://arxiv.org/abs/2107.03374."
+    },
+    {
+        "question": "What is the Llama 3 herd of models?",
+        "answer": "The Llama 3 herd of models refers to a series of models developed by Meta, as described in the preprint by Dubey et al. (2024). These models are designed for various natural language processing tasks. The preprint is available at https://arxiv.org/abs/2407.21783."
+    },
+    {
+        "question": "What is Length-controlled AlpacaEval?",
+        "answer": "Length-controlled AlpacaEval is a method to debias automatic evaluators by controlling the length of generated responses. It is discussed in the preprint by Dubois et al. (2024), available at https://arxiv.org/abs/2404.04475."
+    },
+    {
+        "question": "What is AlphaZero-like tree-search in the context of LLMs?",
+        "answer": "AlphaZero-like tree-search is a method explored by Feng et al. (2024) to guide large language model decoding and training, inspired by the AlphaZero algorithm. The preprint is available at https://arxiv.org/abs/2309.17179."
+    },
+    {
+        "question": "What are scaling laws for reward model overoptimization?",
+        "answer": "Scaling laws for reward model overoptimization, discussed by Gao et al. (2022), explore how reward models behave as they are scaled up and optimized. The preprint is available at https://arxiv.org/abs/2210.10760."
+    },
+    {
+        "question": "What is the MMLU-Pro benchmark?",
+        "answer": "MMLU-Pro is a more robust and challenging multi-task language understanding benchmark, introduced by Wang et al. (2024). It is designed to evaluate the generalization capabilities of language models. The preprint is available at https://doi.org/10.48550/arXiv.2406.01574."
+    },
+    {
+        "question": "What is the Gemini 1.5 model?",
+        "answer": "Gemini 1.5 is Google's next-generation model, designed for advanced natural language understanding and generation tasks. More information can be found at https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024."
+    },
+    {
+        "question": "What is Chinese SimpleQA?",
+        "answer": "Chinese SimpleQA is a benchmark designed to evaluate the factuality of large language models in Chinese, introduced by He et al. (2024). The preprint is available at https://arxiv.org/abs/2411.07140."
+    },
+    {
+        "question": "What is the MMLU benchmark?",
+        "answer": "The MMLU (Massive Multitask Language Understanding) benchmark, introduced by Hendrycks et al. (2020), measures the multitask understanding capabilities of language models across various domains. The preprint is available at https://arxiv.org/abs/2009.03300."
+    },
+    {
+        "question": "What is LiveCodeBench?",
+        "answer": "LiveCodeBench is a holistic and contamination-free evaluation framework for large language models in code-related tasks, introduced by Jain et al. (2024). The preprint is available at https://doi.org/10.48550/arXiv.2403.07974."
+    },
+    {
+        "question": "What is the GPQA benchmark?",
+        "answer": "The GPQA (Graduate-Level Google-Proof Q&A) benchmark, introduced by Rein et al. (2023), evaluates the ability of models to answer graduate-level questions. The preprint is available at https://arxiv.org/abs/2311.12022."
+    },
+    {
+        "question": "What is the Math-Shepherd verifier?",
+        "answer": "Math-Shepherd is a label-free step-by-step verifier for large language models in mathematical reasoning, introduced by Wang et al. (2023). The preprint is available at https://arxiv.org/abs/2312.08935."
+    },
+    {
+        "question": "What is the American Invitational Mathematics Examination (AIME)?",
+        "answer": "The AIME is a prestigious mathematics competition for high school students in the United States. Information about the 2024 edition can be found at https://maa.org/math-competitions/american-invitational-mathematics-examination-aime."
+    },
+    {
+        "question": "What is the SWE-Bench Verified dataset?",
+        "answer": "The SWE-Bench Verified dataset is a human-validated subset of the SWE-Bench dataset, designed to evaluate software engineering capabilities of large language models. More information can be found at https://openai.com/index/introducing-swe-bench-verified/."
+    },
+    {
+        "question": "What is the Qwen2.5 model?",
+        "answer": "The Qwen2.5 model is a series of foundation models developed by Qwen, designed for various natural language processing tasks. More information can be found at https://qwenlm.github.io/blog/qwen2.5."
+    },
+    {
+        "question": "What is the DeepSeekMath model?",
+        "answer": "DeepSeekMath is a model designed to push the limits of mathematical reasoning in open language models, introduced by Shao et al. (2024). The preprint is available at https://arxiv.org/abs/2402.03300."
+    },
+    {
+        "question": "Who are the core contributors to the project?",
+        "answer": "The core contributors include Daya Guo, Dejian Yang, Haowei Zhang, Junxiao Song, Ruoyu Zhang, Runxin Xu, Qihao Zhu, Shirong Ma, Peiyi Wang, Xiao Bi, Xiaokang Zhang, Xingkai Yu, Yu Wu, Z.F. Wu, Zhibin Gou, Zhihong Shao, Zhuoshu Li, and Ziyi Gao."
+    },
+    {
+        "question": "Who are some of the contributors to the project?",
+        "answer": "Contributors include Aixin Liu, Bing Xue, Bingxuan Wang, Bochao Wu, Bei Feng, Chengda Lu, Chenggang Zhao, Chengqi Deng, Chong Ruan, Damai Dai, Deli Chen, Dongjie Ji, Erhang Li, Fangyun Lin, Fucong Dai, Fuli Luo, and many others listed in the appendix."
+    },
+    {
+        "question": "How are contributors listed in the appendix?",
+        "answer": "Contributors are listed alphabetically by their first name within each role. Names marked with an asterisk (*) denote individuals who have departed from the team."
+    },
+    {
+        "question": "What is the significance of the asterisk (*) next to some names?",
+        "answer": "The asterisk (*) next to some names indicates that these individuals have departed from the team."
+    },
+    {
+        "question": "What is DualPipe?",
+        "answer": "DualPipe is an innovative bidirectional pipeline parallelism algorithm introduced in the DeepSeek-V3 Technical Report. It achieves full overlap of forward and backward computation-communication phases and reduces pipeline bubbles."
+    },
+    {
+        "question": "How does DualPipe compare to 1F1B and ZB1P in terms of pipeline bubbles and memory usage?",
+        "answer": "DualPipe has pipeline bubbles of (PP/2-1)(\ud835\udc39&\ud835\udc35+\ud835\udc35-3\ud835\udc4a), uses 2\u00d7 parameters, and PP+1 activation memory. In comparison, 1F1B has bubbles of (PP-1)(\ud835\udc39+\ud835\udc35), uses 1\u00d7 parameters, and PP activation memory, while ZB1P has bubbles of (PP-1)(\ud835\udc39+\ud835\udc35-2\ud835\udc4a), uses 1\u00d7 parameters, and PP activation memory."
+    },
+    {
+        "question": "What do \ud835\udc39, \ud835\udc35, \ud835\udc4a, and \ud835\udc39&\ud835\udc35 represent in the context of DualPipe?",
+        "answer": "\ud835\udc39 denotes the execution time of a forward chunk, \ud835\udc35 denotes the execution time of a full backward chunk, \ud835\udc4a denotes the execution time of a 'backward for weights' chunk, and \ud835\udc39&\ud835\udc35 denotes the execution time of two mutually overlapped forward and backward chunks."
+    },
+    {
+        "question": "Who created and developed DualPipe?",
+        "answer": "DualPipe was created and developed by Jiashi Li, Chengqi Deng, and Wenfeng Liang."
+    },
+    {
+        "question": "What is the purpose of the profiling data shared in DeepSeek Infra?",
+        "answer": "The profiling data is shared to help the community better understand the communication-computation overlap strategies and low-level implementation details in DeepSeek's training and inference framework."
+    },
+    {
+        "question": "How can the profiling data be visualized?",
+        "answer": "The profiling data can be visualized by navigating to chrome://tracing in the Chrome browser or edge://tracing in the Edge browser after downloading the data."
+    },
+    {
+        "question": "What is the parallel configuration used in the training profile data?",
+        "answer": "The training profile data uses EP64, TP1 with a 4K sequence length, and excludes PP communication for simplicity."
+    },
+    {
+        "question": "What is the configuration for the inference prefill profile?",
+        "answer": "The inference prefill profile uses EP32, TP1, a prompt length of 4K, and a batch size of 16K tokens per GPU."
+    },
+    {
+        "question": "What is the configuration for the inference decoding profile?",
+        "answer": "The inference decoding profile uses EP128, TP1, a prompt length of 4K, and a batch size of 128 requests per GPU."
+    },
+    {
+        "question": "What is the Expert Parallelism Load Balancer (EPLB)?",
+        "answer": "EPLB is a load balancing algorithm used in expert parallelism (EP) to ensure balanced GPU loads by duplicating heavy-loaded experts and heuristically packing them to GPUs. It also places experts of the same group on the same node to reduce inter-node data traffic."
+    },
+    {
+        "question": "What are the two policies used in the EPLB algorithm?",
+        "answer": "The two policies are: (1) Hierarchical Load Balancing, used when the number of server nodes divides the number of expert groups, and (2) Global Load Balancing, used in other cases."
+    },
+    {
+        "question": "What is the Fire-Flyer File System (3FS)?",
+        "answer": "3FS is a high-performance distributed file system designed for AI training and inference workloads. It leverages modern SSDs and RDMA networks to provide a shared storage layer with strong consistency and file interfaces."
+    },
+    {
+        "question": "What are the key features of 3FS?",
+        "answer": "Key features of 3FS include a disaggregated architecture, strong consistency, file interfaces, support for diverse workloads (data preparation, dataloaders, checkpointing, and KVCache for inference), and high performance."
+    },
+    {
+        "question": "What is the peak throughput of 3FS in a read stress test?",
+        "answer": "In a read stress test, 3FS achieved an aggregate read throughput of approximately 6.6 TiB/s using a cluster of 180 storage nodes and 500+ client nodes."
+    },
+    {
+        "question": "What is the GraySort benchmark, and how does 3FS perform on it?",
+        "answer": "GraySort is a benchmark that measures sort performance on large-scale datasets. 3FS completed sorting 110.5 TiB of data in 30 minutes and 14 seconds, achieving an average throughput of 3.66 TiB/min."
+    },
+    {
+        "question": "What is KVCache, and how does 3FS support it?",
+        "answer": "KVCache is a technique used to optimize LLM inference by caching key and value vectors of previous tokens. 3FS supports KVCache by providing high read throughput, with peak throughput reaching up to 40 GiB/s."
+    },
+    {
+        "question": "What is Deepseek V3 and why is it significant in the AI industry?",
+        "answer": "Deepseek V3 is the latest reasoning model from the Chinese startup Deepseek, which has shown better or equal performance to competitors with a fraction of the training and inference cost. Its significance lies in its approach of improving algorithms rather than pushing for better hardware, achieving better results at a software level."
+    },
+    {
+        "question": "How did Deepseek achieve more efficient training?",
+        "answer": "Deepseek achieved more efficient training by using 8-bit instead of 32-bit to save memory, compressing key value indices to get 93% compression ratios, doing multi-token prediction to double inference speeds, and employing a Mixture-of-Experts (MoE) model that decomposes a big model into small models that can run on consumer-grade hardware."
+    },
+    {
+        "question": "What are the key features of Deepseek V3's model architecture?",
+        "answer": "Deepseek V3's model architecture includes a Mixture-of-Experts (MoE) architecture with only 37B parameters firing for each token out of the total 671B, Multi-head Latent Attention (MLA) to compress the Key-Value cache, and an FP8 mixed precision training framework to reduce memory usage and accelerate training."
+    },
+    {
+        "question": "What is the cost breakdown of training the Deepseek V3 model?",
+        "answer": "The cost breakdown of training the Deepseek V3 model includes pre-training on 14.8 trillion high-quality data taking 2,788,000 GPU hours on the Nvidia h800s cluster, costing around $6 million. This includes pre-training, context length extension, and post-training stages, with an assumed GPU rental price of $2 per GPU hour."
+    },
+    {
+        "question": "How does Deepseek V3's training efficiency compare to other models like Llama 3.1?",
+        "answer": "Deepseek V3's training efficiency is highlighted by its ability to complete pre-training in less than two months using a cluster of 2,048 H800 GPUs, totaling 2,664K GPU hours for pre-training, 119K GPU hours for context length extension, and 5K GPU hours for post-training. In comparison, Llama 3.1 required 30.84 million GPU hours for training on 15 trillion tokens."
+    },
+    {
+        "question": "What is the estimated cost of training Deepseek V3 according to the Deepseek paper?",
+        "answer": "According to the Deepseek paper, the estimated cost of training Deepseek V3 is approximately $5.576 million, calculated based on 2.788 million GPU hours at an assumed rental price of $2 per GPU hour."
+    },
+    {
+        "question": "What are the theoretical and real-world estimates for GPU hours required to train Deepseek V3?",
+        "answer": "The theoretical estimate for GPU hours required to train Deepseek V3, assuming perfect efficiency, is approximately 0.4 million GPU hours. The real-world estimate, adjusted for inefficiencies and based on a comparison with Llama 3.1, is approximately 2.79 million GPU hours."
+    }
+]

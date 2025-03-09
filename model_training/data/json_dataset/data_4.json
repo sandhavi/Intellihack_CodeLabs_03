@@ -1,0 +1,54 @@
+[
+  {
+    "question": "What benchmarks are used to evaluate DeepSeek-R1?",
+    "answer": "DeepSeek-R1 is evaluated on benchmarks including MMLU, MMLU-Redux, MMLU-Pro, C-Eval, CMMLU, IFEval, FRAMES, GPQA Diamond, SimpleQA, C-SimpleQA, SWE-Bench Verified, Aider, LiveCodeBench, Codeforces, Chinese National High School Mathematics Olympiad (CNMO 2024), and American Invitational Mathematics Examination 2024 (AIME 2024)."
+  },
+  {
+    "question": "How are open-ended generation tasks evaluated for DeepSeek-R1?",
+    "answer": "Open-ended generation tasks are evaluated using LLMs as judges, following the configurations of AlpacaEval 2.0 and Arena-Hard, which use GPT-4-Turbo-1106 for pairwise comparisons. Only the final summary is fed to the evaluation to avoid length bias."
+  },
+  {
+    "question": "What evaluation prompts are used for DeepSeek-R1?",
+    "answer": "Standard benchmarks like MMLU, DROP, GPQA Diamond, and SimpleQA use prompts from the simple-evals framework. MMLU-Redux uses Zero-Eval prompts in a zero-shot setting. MMLU-Pro, C-Eval, and CLUE-WSC are modified to zero-shot prompts. Other datasets follow their original evaluation protocols."
+  },
+  {
+    "question": "What is the evaluation setup for DeepSeek-R1?",
+    "answer": "The evaluation setup uses a maximum generation length of 32,768 tokens. Pass@1 is calculated using a sampling temperature of 0.6 and a top-p value of 0.95, generating k responses (typically 4 to 64) for each question. For AIME 2024, consensus results (majority vote) are reported using 64 samples."
+  },
+  {
+    "question": "What are the baselines used for comparing DeepSeek-R1?",
+    "answer": "Baselines include DeepSeek-V3, Claude-Sonnet-3.5-1022, GPT-4o-0513, OpenAI-o1-mini, and OpenAI-o1-1217. For distilled models, QwQ-32B-Preview is also compared."
+  },
+  {
+    "question": "How does DeepSeek-R1 perform on education-oriented benchmarks?",
+    "answer": "DeepSeek-R1 demonstrates superior performance on education-oriented benchmarks like MMLU, MMLU-Pro, and GPQA Diamond, with significant improvements in STEM-related questions due to large-scale reinforcement learning."
+  },
+  {
+    "question": "How does DeepSeek-R1 perform on factual benchmarks?",
+    "answer": "DeepSeek-R1 outperforms DeepSeek-V3 on the factual benchmark SimpleQA but performs worse on Chinese SimpleQA due to safety RL causing it to refuse certain queries."
+  },
+  {
+    "question": "What is DeepSeek-R1's performance on IF-Eval?",
+    "answer": "DeepSeek-R1 delivers impressive results on IF-Eval, showcasing its ability to follow format instructions, attributed to the inclusion of instruction-following data during supervised fine-tuning (SFT) and RL training."
+  },
+  {
+    "question": "How does DeepSeek-R1 perform on writing and open-domain tasks?",
+    "answer": "DeepSeek-R1 excels on AlpacaEval2.0 and ArenaHard, indicating strong performance in writing tasks and open-domain question answering, with concise summary lengths avoiding length bias in GPT-based evaluations."
+  },
+  {
+    "question": "How does DeepSeek-R1 perform on math tasks?",
+    "answer": "DeepSeek-R1 performs on par with OpenAI-o1-1217 on math tasks, surpassing other models by a large margin."
+  },
+  {
+    "question": "How does DeepSeek-R1 perform on coding tasks?",
+    "answer": "DeepSeek-R1 dominates coding algorithm tasks like LiveCodeBench and Codeforces but is slightly outperformed by OpenAI-o1-1217 on engineering-oriented coding tasks like Aider."
+  },
+  {
+    "question": "What are the results of distilled models from DeepSeek-R1?",
+    "answer": "Distilled models like DeepSeek-R1-Distill-Qwen-7B outperform non-reasoning models like GPT-4o-0513. DeepSeek-R1-14B surpasses QwQ-32B-Preview, and DeepSeek-R1-32B and DeepSeek-R1-70B significantly exceed o1-mini on most benchmarks."
+  },
+  {
+    "question": "What is the potential of applying RL to distilled models?",
+    "answer": "Applying RL to distilled models yields significant further gains, but only the results of simple SFT-distilled models are presented here for exploration purposes."
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "question": "What is DeepSeek-R1-Zero?",
+    "answer": "DeepSeek-R1-Zero is a reasoning model trained via large-scale reinforcement learning (RL) without supervised fine-tuning (SFT). It demonstrates strong reasoning capabilities but faces challenges like poor readability and language mixing."
+  },
+  {
+    "question": "What is DeepSeek-R1?",
+    "answer": "DeepSeek-R1 is an improved version of DeepSeek-R1-Zero that incorporates multi-stage training and cold-start data to address issues like poor readability and further enhance reasoning performance. It achieves performance comparable to OpenAI-o1-1217 on reasoning tasks."
+  },
+  {
+    "question": "What challenges does DeepSeek-R1-Zero face?",
+    "answer": "DeepSeek-R1-Zero faces challenges such as poor readability and language mixing."
+  },
+  {
+    "question": "How does DeepSeek-R1 address the challenges of DeepSeek-R1-Zero?",
+    "answer": "DeepSeek-R1 addresses these challenges by incorporating cold-start data and a multi-stage training pipeline, which includes supervised fine-tuning and reasoning-oriented reinforcement learning."
+  },
+  {
+    "question": "What is the performance of DeepSeek-R1 on reasoning tasks?",
+    "answer": "DeepSeek-R1 achieves performance comparable to OpenAI-o1-1217 on reasoning tasks."
+  },
+  {
+    "question": "What models are open-sourced by the DeepSeek team?",
+    "answer": "The DeepSeek team open-sources DeepSeek-R1-Zero, DeepSeek-R1, and six distilled models (1.5B, 7B, 8B, 14B, 32B, 70B) based on Qwen and Llama."
+  },
+  {
+    "question": "What is the goal of using reinforcement learning in DeepSeek-R1-Zero?",
+    "answer": "The goal is to explore the potential of large language models (LLMs) to develop reasoning capabilities without any supervised data, focusing on their self-evolution through a pure RL process."
+  },
+  {
+    "question": "What is the base model used for DeepSeek-R1-Zero?",
+    "answer": "The base model used for DeepSeek-R1-Zero is DeepSeek-V3-Base."
+  },
+  {
+    "question": "What RL framework is used for DeepSeek-R1-Zero?",
+    "answer": "The RL framework used for DeepSeek-R1-Zero is GRPO."
+  },
+  {
+    "question": "What is cold-start data in DeepSeek-R1?",
+    "answer": "Cold-start data is a small amount of initial data used to fine-tune the DeepSeek-V3-Base model before applying reinforcement learning in DeepSeek-R1."
+  },
+  {
+    "question": "What is the role of rejection sampling in DeepSeek-R1?",
+    "answer": "Rejection sampling is used to create new supervised fine-tuning (SFT) data from the RL checkpoint, which is combined with other supervised data to retrain the model."
+  },
+  {
+    "question": "What is the significance of distillation in DeepSeek-R1?",
+    "answer": "Distillation transfers reasoning capabilities from DeepSeek-R1 to smaller dense models, enabling them to achieve strong reasoning performance without requiring RL training."
+  },
+  {
+    "question": "How do the distilled models perform compared to state-of-the-art models?",
+    "answer": "The distilled models, particularly the 14B, 32B, and 70B versions, outperform state-of-the-art open-source models like QwQ-32B-Preview and set new records on reasoning benchmarks."
+  },
+  {
+    "question": "What are the limitations of DeepSeek-R1?",
+    "answer": "The limitations include challenges in readability and language mixing in DeepSeek-R1-Zero, which are partially addressed in DeepSeek-R1 but may still require further improvements."
+  },
+  {
+    "question": "What future work is planned for DeepSeek-R1?",
+    "answer": "Future work includes improving readability, addressing language mixing, and exploring further enhancements to reasoning capabilities through advanced RL techniques and distillation methods."
+  }
+]

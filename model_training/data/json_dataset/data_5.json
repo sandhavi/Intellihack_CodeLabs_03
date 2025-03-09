@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What is the comparison between distillation and reinforcement learning (RL) for smaller models?",
+    "answer": "Distilling larger models like DeepSeek-R1 into smaller ones yields excellent results, whereas smaller models relying on large-scale RL require enormous computational power and may not achieve comparable performance. Distillation is both economical and effective, but advancing beyond current intelligence boundaries may still require more powerful base models and larger-scale RL."
+  },
+  {
+    "question": "What are the results of large-scale RL training on Qwen-32B-Base?",
+    "answer": "Large-scale RL training on Qwen-32B-Base results in DeepSeek-R1-Zero-Qwen-32B, which achieves performance on par with QwQ-32B-Preview. However, DeepSeek-R1-Distill-Qwen-32B, distilled from DeepSeek-R1, significantly outperforms DeepSeek-R1-Zero-Qwen-32B across all benchmarks."
+  },
+  {
+    "question": "What are the limitations of the Process Reward Model (PRM)?",
+    "answer": "PRM has three main limitations: (1) It is challenging to define fine-grained steps in general reasoning, (2) determining the correctness of intermediate steps is difficult, and (3) it leads to reward hacking and complicates the training pipeline. While PRM can rerank top-N responses or assist in guided search, its advantages are limited compared to the computational overhead it introduces."
+  },
+  {
+    "question": "What challenges were encountered with Monte Carlo Tree Search (MCTS)?",
+    "answer": "MCTS faces challenges in scaling up training due to the exponentially larger search space in token generation compared to chess. Setting a maximum extension limit for each node can lead to local optima, and training a fine-grained value model to guide the search process is inherently difficult."
+  },
+  {
+    "question": "What are the key achievements of DeepSeek-R1-Zero and DeepSeek-R1?",
+    "answer": "DeepSeek-R1-Zero achieves strong performance across various tasks using pure RL without cold-start data. DeepSeek-R1, leveraging cold-start data and iterative RL fine-tuning, achieves performance comparable to OpenAI-o1-1217 on a range of tasks."
+  },
+  {
+    "question": "What are the results of distilling DeepSeek-R1 into smaller models?",
+    "answer": "Distilling DeepSeek-R1 into smaller models yields promising results. For example, DeepSeek-R1-Distill-Qwen-1.5B outperforms GPT-4o and Claude-3.5-Sonnet on math benchmarks, achieving 28.9% on AIME and 83.9% on MATH. Other distilled models also significantly outperform instruction-tuned models based on the same checkpoints."
+  },
+  {
+    "question": "What are the future research directions for DeepSeek-R1?",
+    "answer": "Future research directions include: (1) Enhancing general capabilities like function calling, multi-turn conversations, and JSON output, (2) addressing language mixing issues for non-Chinese and non-English queries, (3) improving prompt sensitivity by recommending zero-shot settings, and (4) improving performance on software engineering tasks through rejection sampling or asynchronous evaluations during RL."
+  },
+  {
+    "question": "What is the current limitation of DeepSeek-R1 in software engineering tasks?",
+    "answer": "DeepSeek-R1 has not shown significant improvement over DeepSeek-V3 in software engineering tasks due to the long evaluation times impacting RL efficiency. Future versions will address this by implementing rejection sampling or asynchronous evaluations during the RL process."
+  },
+  {
+    "question": "How does DeepSeek-R1 handle language mixing?",
+    "answer": "DeepSeek-R1 is optimized for Chinese and English, which can result in language mixing issues when handling queries in other languages. For example, it might use English for reasoning and responses even if the query is in another language. This limitation will be addressed in future updates."
+  },
+  {
+    "question": "What is the recommendation for prompting DeepSeek-R1?",
+    "answer": "DeepSeek-R1 is sensitive to prompts, and few-shot prompting degrades its performance. Users are recommended to directly describe the problem and specify the output format using a zero-shot setting for optimal results."
+  }
+]

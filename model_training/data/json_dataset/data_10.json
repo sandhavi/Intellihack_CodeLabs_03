@@ -1,0 +1,52 @@
+{
+  "questions": [
+    {
+      "question": "What is the main objective of the DeepSeek-V3 model?",
+      "answer": "The main objective of the DeepSeek-V3 model is to achieve high performance while maintaining economical training as an open-source model."
+    },
+    {
+      "question": "What are the two main components of the DeepSeek-V3 model architecture?",
+      "answer": "The two main components are Multi-Head Latent Attention (MLA) and DeepSeekMoE."
+    },
+    {
+      "question": "How does Multi-Head Latent Attention (MLA) improve efficiency?",
+      "answer": "MLA improves efficiency by compressing the input vector, reducing data copying, and using a smaller compressed vector for the KV cache."
+    },
+    {
+      "question": "What is the role of DeepSeekMoE in the model?",
+      "answer": "DeepSeekMoE uses a mixture of experts (MoE) approach, where different experts specialize in specific token domains, improving performance by activating the most relevant experts."
+    },
+    {
+      "question": "What mathematical concept is used to determine which experts are activated in DeepSeekMoE?",
+      "answer": "A centroid vector (eᵢ) represents the type of input tokens an expert specializes in, and a similarity score is computed using the dot product uₜᵀ eᵢ, followed by a Sigmoid function and a Top-k selection algorithm."
+    },
+    {
+      "question": "How does DeepSeek-V3 handle Multi-Token Prediction (MTP)?",
+      "answer": "DeepSeek-V3 employs sequential MTP, where previous outputs are concatenated into subsequent MTP modules, similar to RNNs, to improve learning efficiency and convergence speed."
+    },
+    {
+      "question": "What is DualPipe, and how does it optimize training on weaker GPUs?",
+      "answer": "DualPipe optimizes training by reducing GPU communication overhead by initiating training data from two devices in opposite directions, thereby minimizing idle times and reducing communication overhead."
+    },
+    {
+      "question": "How does mixed precision training improve efficiency in DeepSeek-V3?",
+      "answer": "Mixed precision training reduces precision in computationally heavy operations (e.g., matrix multiplication) while maintaining high precision in critical areas, preventing numerical errors through Fine-Grained Quantization."
+    },
+    {
+      "question": "What techniques are used in Fine-Grained Quantization to prevent overflow and underflow?",
+      "answer": "Fine-Grained Quantization groups values and assigns each group a unique scaling factor, preventing numerical overflow and underflow. Additionally, intermediate values are stored in high precision to avoid error accumulation."
+    },
+    {
+      "question": "What reinforcement learning methods are used in DeepSeek-V3?",
+      "answer": "DeepSeek-V3 uses a combination of rule-based and model-based reward models, along with Group Relative Policy Optimization (GRPO) to improve performance and reasoning."
+    },
+    {
+      "question": "How does GRPO prevent excessive deviation from the base model?",
+      "answer": "GRPO uses KL divergence and an epsilon parameter to restrict policy updates, ensuring the model does not deviate too much from the original fine-tuned base model."
+    },
+    {
+      "question": "What is the economic advantage of DeepSeek-V3 over proprietary models?",
+      "answer": "DeepSeek-V3 is significantly more economical to train compared to proprietary models like OpenAI’s, as it optimizes training using cheaper GPUs and efficient computation techniques."
+    }
+  ]
+}

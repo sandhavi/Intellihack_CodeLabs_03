@@ -1,0 +1,66 @@
+[
+  {
+    "question": "What is DualPipe?",
+    "answer": "DualPipe is an innovative bidirectional pipeline parallelism algorithm introduced in the DeepSeek-V3 Technical Report. It achieves full overlap of forward and backward computation-communication phases and reduces pipeline bubbles."
+  },
+  {
+    "question": "How does DualPipe compare to 1F1B and ZB1P in terms of pipeline bubbles and memory usage?",
+    "answer": "DualPipe has pipeline bubbles of (PP/2-1)(𝐹&𝐵+𝐵-3𝑊), uses 2× parameters, and PP+1 activation memory. In comparison, 1F1B has bubbles of (PP-1)(𝐹+𝐵), uses 1× parameters, and PP activation memory, while ZB1P has bubbles of (PP-1)(𝐹+𝐵-2𝑊), uses 1× parameters, and PP activation memory."
+  },
+  {
+    "question": "What do 𝐹, 𝐵, 𝑊, and 𝐹&𝐵 represent in the context of DualPipe?",
+    "answer": "𝐹 denotes the execution time of a forward chunk, 𝐵 denotes the execution time of a full backward chunk, 𝑊 denotes the execution time of a 'backward for weights' chunk, and 𝐹&𝐵 denotes the execution time of two mutually overlapped forward and backward chunks."
+  },
+  {
+    "question": "Who created and developed DualPipe?",
+    "answer": "DualPipe was created and developed by Jiashi Li, Chengqi Deng, and Wenfeng Liang."
+  },
+  {
+    "question": "What is the purpose of the profiling data shared in DeepSeek Infra?",
+    "answer": "The profiling data is shared to help the community better understand the communication-computation overlap strategies and low-level implementation details in DeepSeek's training and inference framework."
+  },
+  {
+    "question": "How can the profiling data be visualized?",
+    "answer": "The profiling data can be visualized by navigating to chrome://tracing in the Chrome browser or edge://tracing in the Edge browser after downloading the data."
+  },
+  {
+    "question": "What is the parallel configuration used in the training profile data?",
+    "answer": "The training profile data uses EP64, TP1 with a 4K sequence length, and excludes PP communication for simplicity."
+  },
+  {
+    "question": "What is the configuration for the inference prefill profile?",
+    "answer": "The inference prefill profile uses EP32, TP1, a prompt length of 4K, and a batch size of 16K tokens per GPU."
+  },
+  {
+    "question": "What is the configuration for the inference decoding profile?",
+    "answer": "The inference decoding profile uses EP128, TP1, a prompt length of 4K, and a batch size of 128 requests per GPU."
+  },
+  {
+    "question": "What is the Expert Parallelism Load Balancer (EPLB)?",
+    "answer": "EPLB is a load balancing algorithm used in expert parallelism (EP) to ensure balanced GPU loads by duplicating heavy-loaded experts and heuristically packing them to GPUs. It also places experts of the same group on the same node to reduce inter-node data traffic."
+  },
+  {
+    "question": "What are the two policies used in the EPLB algorithm?",
+    "answer": "The two policies are: (1) Hierarchical Load Balancing, used when the number of server nodes divides the number of expert groups, and (2) Global Load Balancing, used in other cases."
+  },
+  {
+    "question": "What is the Fire-Flyer File System (3FS)?",
+    "answer": "3FS is a high-performance distributed file system designed for AI training and inference workloads. It leverages modern SSDs and RDMA networks to provide a shared storage layer with strong consistency and file interfaces."
+  },
+  {
+    "question": "What are the key features of 3FS?",
+    "answer": "Key features of 3FS include a disaggregated architecture, strong consistency, file interfaces, support for diverse workloads (data preparation, dataloaders, checkpointing, and KVCache for inference), and high performance."
+  },
+  {
+    "question": "What is the peak throughput of 3FS in a read stress test?",
+    "answer": "In a read stress test, 3FS achieved an aggregate read throughput of approximately 6.6 TiB/s using a cluster of 180 storage nodes and 500+ client nodes."
+  },
+  {
+    "question": "What is the GraySort benchmark, and how does 3FS perform on it?",
+    "answer": "GraySort is a benchmark that measures sort performance on large-scale datasets. 3FS completed sorting 110.5 TiB of data in 30 minutes and 14 seconds, achieving an average throughput of 3.66 TiB/min."
+  },
+  {
+    "question": "What is KVCache, and how does 3FS support it?",
+    "answer": "KVCache is a technique used to optimize LLM inference by caching key and value vectors of previous tokens. 3FS supports KVCache by providing high read throughput, with peak throughput reaching up to 40 GiB/s."
+  }
+]

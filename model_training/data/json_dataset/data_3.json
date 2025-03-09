@@ -1,0 +1,78 @@
+[
+  {
+    "question": "What is the key approach of DeepSeek-R1-Zero?",
+    "answer": "DeepSeek-R1-Zero applies reinforcement learning (RL) directly to the base model without any supervised fine-tuning (SFT) data, allowing the model to explore chain-of-thought (CoT) reasoning for solving complex problems."
+  },
+  {
+    "question": "What is the role of cold-start data in DeepSeek-R1?",
+    "answer": "Cold-start data is used in DeepSeek-R1 to fine-tune the base model before applying RL. It improves readability and reasoning performance by providing a small amount of high-quality, human-friendly data as a starting point."
+  },
+  {
+    "question": "What is the reinforcement learning algorithm used in DeepSeek-R1-Zero?",
+    "answer": "DeepSeek-R1-Zero uses Group Relative Policy Optimization (GRPO), which estimates the baseline from group scores instead of using a critic model, reducing training costs."
+  },
+  {
+    "question": "How does GRPO work?",
+    "answer": "GRPO samples a group of outputs for each question, computes rewards for each output, and optimizes the policy model by maximizing a reward-based objective while minimizing KL divergence from a reference policy."
+  },
+  {
+    "question": "What are the two types of rewards used in DeepSeek-R1-Zero?",
+    "answer": "The two types of rewards are: (1) Accuracy rewards, which evaluate the correctness of the response, and (2) Format rewards, which enforce the model to structure its reasoning process within '<think>' and '</think>' tags."
+  },
+  {
+    "question": "Why are neural reward models not used in DeepSeek-R1-Zero?",
+    "answer": "Neural reward models are avoided because they may suffer from reward hacking during large-scale RL training, and retraining them requires additional resources and complicates the training pipeline."
+  },
+  {
+    "question": "What is the training template for DeepSeek-R1-Zero?",
+    "answer": "The training template requires the model to first produce a reasoning process within '<think>' tags, followed by the final answer within '<answer>' tags, ensuring a structured output format."
+  },
+  {
+    "question": "How does DeepSeek-R1-Zero's performance improve during RL training?",
+    "answer": "DeepSeek-R1-Zero's performance improves steadily during RL training, with its pass@1 score on AIME 2024 increasing from 15.6% to 71.0%, and further to 86.7% with majority voting."
+  },
+  {
+    "question": "What is the self-evolution process of DeepSeek-R1-Zero?",
+    "answer": "DeepSeek-R1-Zero autonomously improves its reasoning capabilities during RL training, developing behaviors like reflection and alternative problem-solving strategies without explicit programming."
+  },
+  {
+    "question": "What is the 'aha moment' in DeepSeek-R1-Zero?",
+    "answer": "The 'aha moment' refers to an intermediate stage where DeepSeek-R1-Zero learns to allocate more thinking time to reevaluate its initial approach, demonstrating advanced problem-solving strategies emerging from RL."
+  },
+  {
+    "question": "What are the drawbacks of DeepSeek-R1-Zero?",
+    "answer": "DeepSeek-R1-Zero struggles with poor readability and language mixing, which are addressed in DeepSeek-R1 by incorporating cold-start data and improving output formatting."
+  },
+  {
+    "question": "What is the pipeline for training DeepSeek-R1?",
+    "answer": "The pipeline for DeepSeek-R1 includes: (1) Cold-start fine-tuning with high-quality CoT data, (2) Reasoning-oriented RL, (3) Rejection sampling and supervised fine-tuning, and (4) RL for all scenarios to align with human preferences."
+  },
+  {
+    "question": "How is cold-start data collected for DeepSeek-R1?",
+    "answer": "Cold-start data is collected using few-shot prompting, generating detailed answers with reflection, gathering readable outputs from DeepSeek-R1-Zero, and refining results through human annotation."
+  },
+  {
+    "question": "What is the reasoning-oriented RL stage in DeepSeek-R1?",
+    "answer": "Reasoning-oriented RL focuses on enhancing the model's capabilities in coding, mathematics, science, and logic reasoning, using rule-based rewards and a language consistency reward to improve readability."
+  },
+  {
+    "question": "How is SFT data collected for DeepSeek-R1?",
+    "answer": "SFT data is collected by performing rejection sampling from the RL checkpoint, filtering out chaotic or unreadable outputs, and retaining correct responses. It includes both reasoning and non-reasoning data."
+  },
+  {
+    "question": "What is the final RL stage in DeepSeek-R1?",
+    "answer": "The final RL stage aligns the model with human preferences by combining rule-based rewards for reasoning tasks and reward models for general tasks, ensuring helpfulness and harmlessness."
+  },
+  {
+    "question": "How is distillation used to empower smaller models?",
+    "answer": "Distillation transfers reasoning capabilities from DeepSeek-R1 to smaller models by fine-tuning them on curated datasets. This approach significantly enhances the reasoning abilities of smaller models without requiring RL."
+  },
+  {
+    "question": "Which base models are used for distillation?",
+    "answer": "The base models used for distillation include Qwen2.5-Math-1.5B, Qwen2.5-Math-7B, Qwen2.5-14B, Qwen2.5-32B, Llama-3.1-8B, and Llama-3.3-70B-Instruct."
+  },
+  {
+    "question": "Why is RL not included in the distilled models?",
+    "answer": "RL is excluded from distilled models to demonstrate the effectiveness of distillation alone, leaving the exploration of RL for smaller models to the broader research community."
+  }
+]

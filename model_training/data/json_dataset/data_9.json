@@ -1,0 +1,30 @@
+[
+  {
+    "question": "What is Deepseek V3 and why is it significant in the AI industry?",
+    "answer": "Deepseek V3 is the latest reasoning model from the Chinese startup Deepseek, which has shown better or equal performance to competitors with a fraction of the training and inference cost. Its significance lies in its approach of improving algorithms rather than pushing for better hardware, achieving better results at a software level."
+  },
+  {
+    "question": "How did Deepseek achieve more efficient training?",
+    "answer": "Deepseek achieved more efficient training by using 8-bit instead of 32-bit to save memory, compressing key value indices to get 93% compression ratios, doing multi-token prediction to double inference speeds, and employing a Mixture-of-Experts (MoE) model that decomposes a big model into small models that can run on consumer-grade hardware."
+  },
+  {
+    "question": "What are the key features of Deepseek V3's model architecture?",
+    "answer": "Deepseek V3's model architecture includes a Mixture-of-Experts (MoE) architecture with only 37B parameters firing for each token out of the total 671B, Multi-head Latent Attention (MLA) to compress the Key-Value cache, and an FP8 mixed precision training framework to reduce memory usage and accelerate training."
+  },
+  {
+    "question": "What is the cost breakdown of training the Deepseek V3 model?",
+    "answer": "The cost breakdown of training the Deepseek V3 model includes pre-training on 14.8 trillion high-quality data taking 2,788,000 GPU hours on the Nvidia h800s cluster, costing around $6 million. This includes pre-training, context length extension, and post-training stages, with an assumed GPU rental price of $2 per GPU hour."
+  },
+  {
+    "question": "How does Deepseek V3's training efficiency compare to other models like Llama 3.1?",
+    "answer": "Deepseek V3's training efficiency is highlighted by its ability to complete pre-training in less than two months using a cluster of 2,048 H800 GPUs, totaling 2,664K GPU hours for pre-training, 119K GPU hours for context length extension, and 5K GPU hours for post-training. In comparison, Llama 3.1 required 30.84 million GPU hours for training on 15 trillion tokens."
+  },
+  {
+    "question": "What is the estimated cost of training Deepseek V3 according to the Deepseek paper?",
+    "answer": "According to the Deepseek paper, the estimated cost of training Deepseek V3 is approximately $5.576 million, calculated based on 2.788 million GPU hours at an assumed rental price of $2 per GPU hour."
+  },
+  {
+    "question": "What are the theoretical and real-world estimates for GPU hours required to train Deepseek V3?",
+    "answer": "The theoretical estimate for GPU hours required to train Deepseek V3, assuming perfect efficiency, is approximately 0.4 million GPU hours. The real-world estimate, adjusted for inefficiencies and based on a comparison with Llama 3.1, is approximately 2.79 million GPU hours."
+  }
+]

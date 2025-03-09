@@ -1,0 +1,82 @@
+[
+  {
+    "question": "What are the main components of the 3FS system?",
+    "answer": "The 3FS system consists of four main components: cluster manager, metadata service, storage service, and client. All components are connected via an RDMA network (InfiniBand or RoCE)."
+  },
+  {
+    "question": "What is the role of the cluster manager in 3FS?",
+    "answer": "The cluster manager handles membership changes, distributes cluster configuration, and ensures high availability by electing a primary manager. It also monitors heartbeats from metadata and storage services to detect failures."
+  },
+  {
+    "question": "How does the metadata service in 3FS work?",
+    "answer": "The metadata service handles file system semantics (e.g., open/create files/directories) and stores file metadata in a transactional key-value store like FoundationDB. It is stateless, allowing seamless upgrades and restarts without disruption."
+  },
+  {
+    "question": "What is the storage service in 3FS responsible for?",
+    "answer": "The storage service manages local SSDs and provides a chunk store interface. It implements Chain Replication with Apportioned Queries (CRAQ) to ensure strong consistency and high throughput."
+  },
+  {
+    "question": "What are the two types of clients in 3FS?",
+    "answer": "3FS provides two clients: FUSE client for general applications and native client for performance-critical applications. The FUSE client is easier to adopt, while the native client offers better performance."
+  },
+  {
+    "question": "What are the advantages of file system interfaces over object stores in 3FS?",
+    "answer": "File system interfaces in 3FS support atomic directory manipulation, symbolic/hard links, and a unified namespace, providing greater flexibility for applications compared to object stores."
+  },
+  {
+    "question": "What are the limitations of FUSE in 3FS?",
+    "answer": "FUSE has performance limitations, including memory copy overhead between kernel and user spaces, and poor multi-threading support due to lock contention. It also lacks concurrent write support to the same file in Linux 5.x."
+  },
+  {
+    "question": "What is the asynchronous zero-copy API in 3FS?",
+    "answer": "The asynchronous zero-copy API allows applications to perform I/O operations without memory copying overhead. It uses shared memory regions (Iov) and ring buffers (Ior) for efficient communication between user processes and the native client."
+  },
+  {
+    "question": "How does 3FS handle file metadata storage?",
+    "answer": "3FS stores file metadata in a transactional key-value store (e.g., FoundationDB). Metadata includes inodes (for file attributes) and directory entries (for file organization). Metadata services are stateless, ensuring high availability and scalability."
+  },
+  {
+    "question": "What is the role of the chunk storage system in 3FS?",
+    "answer": "The chunk storage system divides file data into equally sized chunks and replicates them across multiple SSDs using CRAQ. It ensures high bandwidth and fault tolerance by distributing data across replication chains."
+  },
+  {
+    "question": "What is Chain Replication with Apportioned Queries (CRAQ)?",
+    "answer": "CRAQ is a replication protocol where write requests are propagated along a chain of storage targets, and read requests can be served by any target. It ensures strong consistency and high read throughput by utilizing all replicas."
+  },
+  {
+    "question": "How does 3FS handle failure detection?",
+    "answer": "3FS uses heartbeats to detect failures. The cluster manager declares a service failed if it misses heartbeats for a configurable interval. Storage services exit if they cannot communicate with the cluster manager for half that interval."
+  },
+  {
+    "question": "What is the data recovery process in 3FS?",
+    "answer": "When a storage service restarts after a failure, it enters a recovery process where it synchronizes data with its predecessors. The process involves transferring chunk metadata and ensuring consistency through full-chunk-replace writes."
+  },
+  {
+    "question": "How does 3FS ensure balanced traffic during recovery?",
+    "answer": "3FS balances traffic during recovery by distributing redirected read requests across multiple SSDs. This prevents any single SSD from becoming a bottleneck and maintains high read throughput."
+  },
+  {
+    "question": "What is the role of the chunk allocator in 3FS?",
+    "answer": "The chunk allocator manages the allocation of physical blocks for storing chunk data. It uses a resource pool with bitmaps to track block usage and ensures efficient allocation and deallocation of storage space."
+  },
+  {
+    "question": "How does 3FS handle concurrent writes to the same file?",
+    "answer": "3FS uses chunk locks to serialize concurrent writes to the same chunk. Write requests are processed in order at the head target, ensuring consistency and preventing conflicts."
+  },
+  {
+    "question": "What is the purpose of the rendezvous hash algorithm in 3FS?",
+    "answer": "The rendezvous hash algorithm is used to distribute file length update tasks across multiple metadata services, ensuring balanced load and minimizing transaction conflicts during concurrent updates."
+  },
+  {
+    "question": "How does 3FS optimize file length updates?",
+    "answer": "3FS optimizes file length updates by using hints about the number of chains containing file chunks. This avoids querying all chains for small files, reducing overhead and improving performance."
+  },
+  {
+    "question": "What is the role of RocksDB in 3FS?",
+    "answer": "RocksDB is used in 3FS to store chunk metadata and system information. It provides efficient and atomic updates through write batches, ensuring consistency and reliability in metadata operations."
+  },
+  {
+    "question": "How does 3FS handle storage medium failures?",
+    "answer": "When a storage medium fails, the affected storage targets are marked offline and moved to the end of their chains. The cluster manager initiates data recovery to synchronize data with other replicas and restore consistency."
+  }
+]

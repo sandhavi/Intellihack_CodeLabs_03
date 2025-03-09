@@ -1,0 +1,74 @@
+[
+  {
+    "question": "What is the Llama 3.1 model card?",
+    "answer": "The Llama 3.1 model card provides details about the Llama 3.1 model, including its architecture, training data, and performance. It is available at https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md."
+  },
+  {
+    "question": "What is Claude 3.5 Sonnet?",
+    "answer": "Claude 3.5 Sonnet is a model developed by Anthropic, designed for advanced natural language understanding and generation tasks. More information can be found at https://www.anthropic.com/news/claude-3-5-sonnet."
+  },
+  {
+    "question": "What is the focus of the paper 'Evaluating large language models trained on code'?",
+    "answer": "The paper focuses on evaluating the performance of large language models trained on code, exploring their capabilities in code generation, understanding, and reasoning. It is available at https://arxiv.org/abs/2107.03374."
+  },
+  {
+    "question": "What is the Llama 3 herd of models?",
+    "answer": "The Llama 3 herd of models refers to a series of models developed by Meta, as described in the preprint by Dubey et al. (2024). These models are designed for various natural language processing tasks. The preprint is available at https://arxiv.org/abs/2407.21783."
+  },
+  {
+    "question": "What is Length-controlled AlpacaEval?",
+    "answer": "Length-controlled AlpacaEval is a method to debias automatic evaluators by controlling the length of generated responses. It is discussed in the preprint by Dubois et al. (2024), available at https://arxiv.org/abs/2404.04475."
+  },
+  {
+    "question": "What is AlphaZero-like tree-search in the context of LLMs?",
+    "answer": "AlphaZero-like tree-search is a method explored by Feng et al. (2024) to guide large language model decoding and training, inspired by the AlphaZero algorithm. The preprint is available at https://arxiv.org/abs/2309.17179."
+  },
+  {
+    "question": "What are scaling laws for reward model overoptimization?",
+    "answer": "Scaling laws for reward model overoptimization, discussed by Gao et al. (2022), explore how reward models behave as they are scaled up and optimized. The preprint is available at https://arxiv.org/abs/2210.10760."
+  },
+  {
+    "question": "What is the MMLU-Pro benchmark?",
+    "answer": "MMLU-Pro is a more robust and challenging multi-task language understanding benchmark, introduced by Wang et al. (2024). It is designed to evaluate the generalization capabilities of language models. The preprint is available at https://doi.org/10.48550/arXiv.2406.01574."
+  },
+  {
+    "question": "What is the Gemini 1.5 model?",
+    "answer": "Gemini 1.5 is Google's next-generation model, designed for advanced natural language understanding and generation tasks. More information can be found at https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024."
+  },
+  {
+    "question": "What is Chinese SimpleQA?",
+    "answer": "Chinese SimpleQA is a benchmark designed to evaluate the factuality of large language models in Chinese, introduced by He et al. (2024). The preprint is available at https://arxiv.org/abs/2411.07140."
+  },
+  {
+    "question": "What is the MMLU benchmark?",
+    "answer": "The MMLU (Massive Multitask Language Understanding) benchmark, introduced by Hendrycks et al. (2020), measures the multitask understanding capabilities of language models across various domains. The preprint is available at https://arxiv.org/abs/2009.03300."
+  },
+  {
+    "question": "What is LiveCodeBench?",
+    "answer": "LiveCodeBench is a holistic and contamination-free evaluation framework for large language models in code-related tasks, introduced by Jain et al. (2024). The preprint is available at https://doi.org/10.48550/arXiv.2403.07974."
+  },
+  {
+    "question": "What is the GPQA benchmark?",
+    "answer": "The GPQA (Graduate-Level Google-Proof Q&A) benchmark, introduced by Rein et al. (2023), evaluates the ability of models to answer graduate-level questions. The preprint is available at https://arxiv.org/abs/2311.12022."
+  },
+  {
+    "question": "What is the Math-Shepherd verifier?",
+    "answer": "Math-Shepherd is a label-free step-by-step verifier for large language models in mathematical reasoning, introduced by Wang et al. (2023). The preprint is available at https://arxiv.org/abs/2312.08935."
+  },
+  {
+    "question": "What is the American Invitational Mathematics Examination (AIME)?",
+    "answer": "The AIME is a prestigious mathematics competition for high school students in the United States. Information about the 2024 edition can be found at https://maa.org/math-competitions/american-invitational-mathematics-examination-aime."
+  },
+  {
+    "question": "What is the SWE-Bench Verified dataset?",
+    "answer": "The SWE-Bench Verified dataset is a human-validated subset of the SWE-Bench dataset, designed to evaluate software engineering capabilities of large language models. More information can be found at https://openai.com/index/introducing-swe-bench-verified/."
+  },
+  {
+    "question": "What is the Qwen2.5 model?",
+    "answer": "The Qwen2.5 model is a series of foundation models developed by Qwen, designed for various natural language processing tasks. More information can be found at https://qwenlm.github.io/blog/qwen2.5."
+  },
+  {
+    "question": "What is the DeepSeekMath model?",
+    "answer": "DeepSeekMath is a model designed to push the limits of mathematical reasoning in open language models, introduced by Shao et al. (2024). The preprint is available at https://arxiv.org/abs/2402.03300."
+  }
+]
